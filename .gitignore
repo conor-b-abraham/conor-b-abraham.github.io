@@ -10,3 +10,7 @@ Gemfile.lock
 assets/libs/
 node_modules/
 vendor
+README.md 
+CONTRIBUTING.md
+CUSTOMIZE.md 
+INSTALL.md
