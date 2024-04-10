@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: About
 title: about
 permalink: /
 subtitle: <a href='https://sites.bu.edu/straub/'>Ph.D. Candidate in the Straub Group</a>. Boston University. Department of Chemistry. Division of Chemical Theory and Computation.
@@ -11,6 +11,7 @@ profile:
   more_info: >
 news: false # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
+latest_posts: false
 social: true # includes social icons at the bottom of the page
 ---
 
@@ -25,4 +26,4 @@ social: true # includes social icons at the bottom of the page
 
 I am a Ph.D. Candidate in the Straub Group of Boston University's Department of Chemistry. In my current research, I am exploring the biochemistry and biophysics of amyloid fibril formation through the use of multiscale modelling. 
 
-This site will be used for the dissemination of materials on topics ranging from basic principles of computational and theoretical chemistry to advanced concepts for simulation analysis. 
+This site will be used for the dissemination of materials on topics ranging from basic principles to advanced concepts of computational and theoretical chemistry. 
