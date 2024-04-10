@@ -1,6 +1,6 @@
 ---
-layout: About
-title: about
+layout: about
+title: About
 permalink: /
 subtitle: <a href='https://sites.bu.edu/straub/'>Ph.D. Candidate in the Straub Group</a>. Boston University. Department of Chemistry. Division of Chemical Theory and Computation.
 
