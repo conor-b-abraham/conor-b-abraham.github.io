@@ -10,44 +10,53 @@
   type: time_table
   contents:
     - title: Ph.D. Chemistry
-      institution: Boston University | Boston, MA
+      institution: Boston University
+      location: Boston, MA
       year: 2020-Present
       description:
+        **GPA:** 3.87/4.00
     - title: B.S. Biochemistry
-      institution: University of St. Thomas | St. Paul, MN
+      institution: University of St. Thomas
+      location: St. Paul, MN
       year: 2016-2020
       description:
-        - title: GPA
-          contents: 3.83/4.00
+        **GPA:** 3.83/4.00
 
 - title: Research Experience
   type: time_table
   contents:
     - title: Ph.D. Research Fellow
-      institution: Straub Group, Department of Chemistry, Boston University | Boston, MA
+      institution: Straub Group, Department of Chemistry, Boston University
+      location: Boston, MA
       year: 2020-Present
       description:
     - title: Undergraduate Research Assistant 
-      institution: Layfield Group, Department of Chemistry, University of St. Thomas | St. Paul, MN
+      institution: Layfield Group, Department of Chemistry, University of St. Thomas
+      location: St. Paul, MN
       year: 2018-2020
 
 - title: Teaching Experience
   type: time_table
   contents:
     - title: Ph.D. Teaching Fellow | Computational Chemistry
-      institution: Department of Chemistry, Boston University | Boston, MA
+      institution: Department of Chemistry, Boston University
+      location: Boston, MA
       year: 2024
     - title: Ph.D. Teaching Fellow | General Chemistry I
-      institution: Department of Chemistry, Boston University | Boston, MA
+      institution: Department of Chemistry, Boston University
+      location: Boston, MA
       year: 2020, 2023
     - title: Ph.D. Teaching Fellow | General Chemistry II
-      institution: Department of Chemistry, Boston University | Boston, MA
+      institution: Department of Chemistry, Boston University
+      location: Boston, MA
       year: 2022
     - title: Undergraduate Teaching Assistant | Biochemistry I (lab)
-      institution: Department of Chemistry, University of St. Thomas | St. Paul, MN
+      institution: Department of Chemistry, University of St. Thomas
+      location: St. Paul, MN
       year: 2019
     - title: Tutor | General and Organic Chemistry
-      institution: Department of Chemistry, University of St. Thomas | St. Paul, MN
+      institution: Department of Chemistry, University of St. Thomas
+      location: St. Paul, MN
       year: 2018-2020
     
 
@@ -55,29 +64,38 @@
   type: time_table
   contents:
     - title: Dean’s Fellowship
-      institution : Graduate School of Arts and Sciences, Boston University | Boston, MA
+      institution : Graduate School of Arts and Sciences, Boston University
+      location: Boston, MA
       year: 2021
     - title: Graduated Magna Cum Laude
       year: 2020
-      institution: University of St. Thomas | St. Paul, MN
+      institution: University of St. Thomas
+      location: St. Paul, MN
     - title: Graduated as an Aquinas Scholar (Honors Program)
       year: 2020
-      institution: Aquinas Scholars Honors Program, University of St. Thomas | St. Paul, MN
+      institution: Aquinas Scholars Honors Program, University of St. Thomas
+      location: St. Paul, MN
     - title: Dean’s List (Every Semester)
       year: 2016-2020
-      institution: University of St. Thomas | St. Paul, MN
+      institution: University of St. Thomas
+      location: St. Paul, MN
     - title: Collaborative Inquiry Research Grant (Fall)
       year: 2019
-      institution: Undergraduate Research Opportunities Program, University of St. Thomas | St. Paul, MN
+      institution: Undergraduate Research Opportunities Program, University of St. Thomas
+      location: St. Paul, MN
     - title: Young Scholars Research Grant (Summer)
       year: 2019
-      institution: Undergraduate Research Opportunities Program, University of St. Thomas | St. Paul, MN
+      institution: Undergraduate Research Opportunities Program, University of St. Thomas
+      location: St. Paul, MN
     - title: Collaborative Inquiry Research Grant (Spring)
       year: 2019
-      institution: Undergraduate Research Opportunities Program, University of St. Thomas | St. Paul, MN
+      institution: Undergraduate Research Opportunities Program, University of St. Thomas
+      location: St. Paul, MN
     - title: Conference Travel Grant
       year: 2019
-      institution: Undergraduate Research Opportunities Program, University of St. Thomas | St. Paul, MN
+      institution: Undergraduate Research Opportunities Program, University of St. Thomas
+      location: St. Paul, MN
     - title: Chemistry Department Research Grant
       year: 2018
-      institution: Chemistry Department, University of St. Thomas | St. Paul, MN
+      institution: Chemistry Department, University of St. Thomas
+      location: St. Paul, MN
