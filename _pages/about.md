@@ -21,7 +21,7 @@ social: true # includes social icons at the bottom of the page
     </div>
 </div>
 <div class="caption">
-    BACE1 (yellow) and ADAM10 (green) competitively cleave APP (blue) along the amyloidogenic and non-amyloidogenic pathways of the amyloid cascade of Alzheimer's Disease, respectively. One of the focuses of my research, is to understand the impact of membrane phase separation on the regulation of these proteins. This image was created in <a href='https://www.ks.uiuc.edu/Research/vmd/'>Visual Molecular Dynamics (VMD)</a>..
+    BACE1 (yellow) and ADAM10 (green) competitively cleave APP (blue) along the amyloidogenic and non-amyloidogenic pathways of the amyloid cascade of Alzheimer's Disease, respectively. One of the focuses of my research is to understand the impact of membrane phase separation on the regulation of these proteins. This image was created in <a href='https://www.ks.uiuc.edu/Research/vmd/'>Visual Molecular Dynamics (VMD)</a>.
 </div>
 
 I am a Ph.D. Candidate in the Straub Group of Boston University's Department of Chemistry. In my current research, I am exploring the biochemistry and biophysics of amyloid fibril formation through the use of multiscale modelling. 
