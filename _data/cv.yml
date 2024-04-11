@@ -17,7 +17,8 @@
       institution: University of St. Thomas | St. Paul, MN
       year: 2016-2020
       description:
-        - GPA: 3.83/4.00
+        - name: GPA
+          value: 3.83/4.00
 
 - title: Research Experience
   type: time_table
