@@ -5,7 +5,7 @@ permalink: /resources/
 description: A collection of resources
 nav: true
 nav_order: 3
-display_categories: [tools]
+display_categories: [Tools]
 horizontal: false
 ---
 
