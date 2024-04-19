@@ -11,9 +11,11 @@ toc:
   sidebar: left
 ---
 
-<p align="center">
-<img src="./pics/FibMap_Logo.png" width="50%">
-</p>
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/FibMap_Logo.png" title="FibMap Logo" class="img-fluid rounded z-depth-1" zoomable=true %}
+    </div>
+</div>
 
 Fibmap is an automated tool for calculating and displaying the intermolecular forces (Salt Bridges, Hydrogen Bonds, and Pi Stacking interactions) within a finite amyloid fibril model from a PDB file or Molecular Dynamics trajectory.  
 
@@ -35,7 +37,7 @@ FibMap.py was created to aid the analysis of the evergrowing collection of amylo
     </div>
 </div>
 <div class="caption">
-    **Figure 1:** FibMap creates an informative figure displaying the residues and key contacts within an amyloid fibril. The image on the left was created using Visual Molecular Dynamics (VMD) [[11]](#references). The shown fibril is the human Serum Amyloid A fibril ([PDB 6MST](https://doi.org/10.2210/pdb6MST/pdb))[[12]](#references).
+    Figure 1: FibMap creates an informative figure displaying the residues and key contacts within an amyloid fibril. The image on the left was created using Visual Molecular Dynamics (VMD) [[11]](#references). The shown fibril is the human Serum Amyloid A fibril (<a href='https://doi.org/10.2210/pdb6MST/pdb'>PDB 6MST</a>)[<a href='https://conor-b-abraham.github.io/projects/1_FibMap/#references'>12</a>].
 </div>
 
 ## Methodology
@@ -51,15 +53,15 @@ Potential hydrogen bond acceptors and hydrogens are guessed using the atom charg
     </div>
 </div>
 <div class="caption">
-    **Figure 2:** Schematic showing $\theta_{D-H-A}$ and $D_{D-A}$ of a hydrogen bond. For a given set of a potential hydrogen bond donor and hydrogen and a potential hydrogen bond acceptor, $\theta_{D-H-A}$ and $D_{D-A}$ must be below their cutoff.
+    Figure 2: Schematic showing $$\theta_{D-H-A}$$ and $$D_{D-A}$$ of a hydrogen bond. For a given set of a potential hydrogen bond donor and hydrogen and a potential hydrogen bond acceptor, $$\theta_{D-H-A}$$ and $$D_{D-A}$$ must be below their cutoff.
 </div>
 
-Hydrogen bonds are identified from sets of potential hydrogen bonds donors, acceptors, and hydrogens using a donor-acceptor distance cutoff ($D_{D-A}$, Default: 3.5Å) and a donor-hydrogen-acceptor angle cutoff ($\theta_{D-H-A}$, Default: 150°) as shown in **Figure 2**. These cutoffs can be changed from the commandline or with an input file if desired (See [Usage: calc: Parameters](#parameters)).
+Hydrogen bonds are identified from sets of potential hydrogen bonds donors, acceptors, and hydrogens using a donor-acceptor distance cutoff ($$D_{D-A}$$, Default: 3.5Å) and a donor-hydrogen-acceptor angle cutoff ($$\theta_{D-H-A}$$, Default: 150°) as shown in Figure 2. These cutoffs can be changed from the commandline or with an input file if desired (See [Usage: calc: Parameters](#parameters)).
 
 ### Salt Bridges
-FibMap calculates salt bridges by identifying charged residues and calculating the minimum distance between the charged regions on their sidechains. If the minimum distance between a cation and an anion is below the distance cutoff (Default: 4Å) it is counted as a salt bridge (**Figure 3**). The distance cutoff for a salt bridge can be changed from the commandline or with an input file if desired (See [Usage: calc: Parameters](#parameters)).
+FibMap calculates salt bridges by identifying charged residues and calculating the minimum distance between the charged regions on their sidechains. If the minimum distance between a cation and an anion is below the distance cutoff (Default: 4Å) it is counted as a salt bridge (Figure 3). The distance cutoff for a salt bridge can be changed from the commandline or with an input file if desired (See [Usage: calc: Parameters](#parameters)).
 
-Determination of charged residues capable of forming salt bridges can be done manually or automatically. The salt bridge group determination method and its associated parameters can be set from the commandline or with an input file (See [Usage: calc: Parameters](#parameters)). If done manually, the user can select the residue names and atom names they want to include in the calculation. The default names for manual determination are based on the CHARMM36 force field atom and residue names and are set to include aspartic acid and glutamic acid as anions and lysine, arginine, and basic histidine as cations (**Table 1**).
+Determination of charged residues capable of forming salt bridges can be done manually or automatically. The salt bridge group determination method and its associated parameters can be set from the commandline or with an input file (See [Usage: calc: Parameters](#parameters)). If done manually, the user can select the residue names and atom names they want to include in the calculation. The default names for manual determination are based on the CHARMM36 force field atom and residue names and are set to include aspartic acid and glutamic acid as anions and lysine, arginine, and basic histidine as cations (Table 1).
 
 | Type | Residue | Residue Name(s) | Atom Names |
 |---|---|---|---|
@@ -69,7 +71,7 @@ Determination of charged residues capable of forming salt bridges can be done ma
 | Cation | Arginine | ARG | NH1, NH2, NE |
 | Cation | Basic Histidine | HSP | ND1, NE2 |
 
-> **Table 1:** Default residue and atom names used for the manual salt bridge group selector mode.
+> Table 1: Default residue and atom names used for the manual salt bridge group selector mode.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -77,10 +79,10 @@ Determination of charged residues capable of forming salt bridges can be done ma
     </div>
 </div>
 <div class="caption">
-    **Figure 3:** Schematic showing the automatic salt bridge group determination method and distances. For lysine (left), the overall charge of the NH<sub>3</sub> group is 0.69e. Because this is the largest charge on the lysine sidechain, the NZ atom will be used as a reference point. For aspartic acid (right) the OD1 and OD2 atoms each carry a -0.76e charge. Assuming this is below the anion charge cutoff, both atoms will be used as reference points. As aspartic acid has 2 reference points and lysine has 1 reference point, two distances are computed, $D_{NZ-OD1}$ and $D_{NZ-OD2}$. At least one of these distances must be below the salt bridge distance cutoff for it to count as a salt bridge.
+    Figure 3: Schematic showing the automatic salt bridge group determination method and distances. For lysine (left), the overall charge of the NH<sub>3</sub> group is 0.69e. Because this is the largest charge on the lysine sidechain, the NZ atom will be used as a reference point. For aspartic acid (right) the OD1 and OD2 atoms each carry a -0.76e charge. Assuming this is below the anion charge cutoff, both atoms will be used as reference points. As aspartic acid has 2 reference points and lysine has 1 reference point, two distances are computed, $$D_{NZ-OD1}$$ and $$D_{NZ-OD2}$$. At least one of these distances must be below the salt bridge distance cutoff for it to count as a salt bridge.
 </div>
 
-If done automatically, charged residues are identified using the atom charges in the topology. Then, for each heavy atom in a charged residue, the total charge of that atom and any connected hydrogens is computed (**Figure 3**). For anions, if the total charge is less than the charge cutoff (Default: -0.5e), the heavy atom is added to the charged region for that atom. For cations, if the total charge is greater than the charge cutoff (Default: 0.5e), the heavy atom is added to the charged region for that atom. If no heavy atom meets the cutoff requirement for an acidic or basic residue, the heavy atom closest to the cutoff will be used and a warning will be thrown.
+If done automatically, charged residues are identified using the atom charges in the topology. Then, for each heavy atom in a charged residue, the total charge of that atom and any connected hydrogens is computed (Figure 3). For anions, if the total charge is less than the charge cutoff (Default: -0.5e), the heavy atom is added to the charged region for that atom. For cations, if the total charge is greater than the charge cutoff (Default: 0.5e), the heavy atom is added to the charged region for that atom. If no heavy atom meets the cutoff requirement for an acidic or basic residue, the heavy atom closest to the cutoff will be used and a warning will be thrown.
 
 ### Pi Stacking Interactions
 
@@ -90,12 +92,12 @@ If done automatically, charged residues are identified using the atom charges in
     </div>
 </div>
 <div class="caption">
-    **Figure 4:** Various measures used in finding and categorizing pi stacking interactions. Based on Fig. 2 from Zhao et al. (2015) [[13]](#references).
+    Figure 4: Various measures used in finding and categorizing pi stacking interactions. Based on Fig. 2 from Zhao et al. (2015) [[13]](#references).
 </div>
 
-To calculate pi-stacking interactions, FibMap follows the methodology developed by Zhao et al. [[13]](#references). For the ring of each phenylalanine, tyrosine, histidine, and tryptophan residue, we define its normal vector ($\mathbf{n_i}$), ring plane vector ($\mathbf{r_i}$), and centroid (**Figure 4**). Then, for each pair of rings, we calculate their centroid-centroid distance ($\mathrm{R_{cen}}$), the acute angle between the centroid-centroid vector and $\mathbf{r_1}$ ($\theta$), the acute angle between the centroid-centroid vector and $\mathbf{r_2}$, and the acute angle between $\mathbf{n_1}$ and $\mathbf{n_2}$ (**Figure 4**).
+To calculate pi-stacking interactions, FibMap follows the methodology developed by Zhao et al. [[13]](#references). For the ring of each phenylalanine, tyrosine, histidine, and tryptophan residue, we define its normal vector ($$\mathbf{n_i}$$), ring plane vector ($$\mathbf{r_i}$$), and centroid (Figure 4). Then, for each pair of rings, we calculate their centroid-centroid distance ($$\mathrm{R_{cen}}$$), the acute angle between the centroid-centroid vector and $$\mathbf{r_1}$$ ($$\theta$$), the acute angle between the centroid-centroid vector and $$\mathbf{r_2}$$, and the acute angle between $$\mathbf{n_1}$$ and $$\mathbf{n_2}$$ (Figure 4).
 
-Any pair with $\mathrm{R_{cen}} \leq 7.2$ Å could be a pi stacking interaction, so we define its type (**Figure 5**). If $\theta \lt 30^{\circ}$ and $\delta \lt 30^{\circ}$, its a spurious interaction (not a pi stacking interaction). If $\gamma \lt 50^{\circ}$, it's a T-shaped pi stacking interaction. If $30^{\circ} \leq \gamma \leq 50^{\circ}$, it's an intermediate pi stacking interaction. If $\gamma \lt 30^{\circ}$ and either $\theta \gt 80^{\circ}$ or $\delta \gt 80^{\circ}$, its a sandwich pi stacking interaction. If $\gamma \lt 30^{\circ}$ and neither $\theta \gt 80^{\circ}$ nor $\delta \gt 80^{\circ}$, its a parallel displaced pi stacking interaction.
+Any pair with $$\mathrm{R_{cen}} \leq 7.2$$ Å could be a pi stacking interaction, so we define its type (Figure 5). If $$\theta \lt 30^{\circ}$$ and $$\delta \lt 30^{\circ}$$, its a spurious interaction (not a pi stacking interaction). If $$\gamma \lt 50^{\circ}$$, it's a T-shaped pi stacking interaction. If $$30^{\circ} \leq \gamma \leq 50^{\circ}$$, it's an intermediate pi stacking interaction. If $$\gamma \lt 30^{\circ}$$ and either $$\theta \gt 80^{\circ}$$ or $$\delta \gt 80^{\circ}$$, its a sandwich pi stacking interaction. If $$\gamma \lt 30^{\circ}$$ and neither $$\theta \gt 80^{\circ}$$ nor $$\delta \gt 80^{\circ}$$, its a parallel displaced pi stacking interaction.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -103,10 +105,10 @@ Any pair with $\mathrm{R_{cen}} \leq 7.2$ Å could be a pi stacking interaction,
     </div>
 </div>
 <div class="caption">
-    **Figure 5:** The three main types of pi stacking interactions (Sandwich, T-Shaped, and Parallel Displaced). Intermediate pi stacking interactions (not shown) are between Sandwich and T-Shaped geometry. Based on Fig. 1 from Zhao et al. (2015) [[13]](#references).
+    Figure 5: The three main types of pi stacking interactions (Sandwich, T-Shaped, and Parallel Displaced). Intermediate pi stacking interactions (not shown) are between Sandwich and T-Shaped geometry. Based on Fig. 1 from Zhao et al. (2015) [[13]](#references).
 </div>
 
-At this time, the calculation of pi stacking interactions depends upon residue and atom names. In the future, I would like to completely remove naming dependence from the program, but for now this is the only part of the program that still relies on it. By default, the program uses the CHARMM36 forcefield residue and atom names (**Table 2**). These names can be changed from the commandline or using an input file (See [Usage: calc: Parameters](#parameters)).
+At this time, the calculation of pi stacking interactions depends upon residue and atom names. In the future, I would like to completely remove naming dependence from the program, but for now this is the only part of the program that still relies on it. By default, the program uses the CHARMM36 forcefield residue and atom names (Table 2). These names can be changed from the commandline or using an input file (See [Usage: calc: Parameters](#parameters)).
 
 | Residue | Residue Name(s) | Atom Names |
 |---|---|---|
@@ -115,16 +117,16 @@ At this time, the calculation of pi stacking interactions depends upon residue a
 | Histidine | HSD, HSE, HSP | CG, CD2, NE2, CE1, ND1 |
 | Tryptophan | TRP | CG CD1, NE1, CE2, CD2 |
 
-> **Table 2:** The default residue and atom names used to select the aromatic rings that could participate in a pi stacking interaction. *NOTE: Notice that the 5-membered ring (not the 6-membered ring) is used for Tryptophan. This follows the guidance of Zhao et al (2015) [[13]](#references).*
+> Table 2: The default residue and atom names used to select the aromatic rings that could participate in a pi stacking interaction. *NOTE: Notice that the 5-membered ring (not the 6-membered ring) is used for Tryptophan. This follows the guidance of Zhao et al (2015) [[13]](#references).*
 
 ### Probabilities
 
 The goal with calculating the probabilities (or average number of) a given type of interaction within the fibril is to have the probability reflect that of an infinite fibril. 
 
-> *NOTE: For pi stacking interactions, the processed results file will contain values for* ${P(Sandwich)}$*,* $P(T-Shaped)$*,* $P(Intermediate)$*, and* $P(Parallel \text{ } Displaced)$*, as well as,* $P(Total)$*.* $P(Sandwich)$*,* $P(T-Shaped)$*,* $P(Intermediate)$*, and* $P(Parallel \text{ } Displaced)$ *are computed after* $P(Total)$ *(i.e. they tell you the probability that the pi stacking interaction is of that kind IF it exists). The probability cutoff for displaying a pi stacking interaction on the FibMap is only applied to* $P(Total)$*.*
+> *NOTE: For pi stacking interactions, the processed results file will contain values for* $${P(Sandwich)}$$*,* $$P(T-Shaped)$$*,* $$P(Intermediate)$$*, and* $$P(Parallel \text{ } Displaced)$$*, as well as,* $$P(Total)$$*.* $$P(Sandwich)$$*,* $$P(T-Shaped)$$*,* $$P(Intermediate)$$*, and* $$P(Parallel \text{ } Displaced)$$ *are computed after* $$P(Total)$$ *(i.e. they tell you the probability that the pi stacking interaction is of that kind IF it exists). The probability cutoff for displaying a pi stacking interaction on the FibMap is only applied to* $$P(Total)$$*.*
 
 #### Interlayer Interactions
-For interlayer interactions, this means that the probabilties need to be adjusted to reflect the fact that in a finite fibril model (such as the Cryo-EM structures deposited on the PDB databank), the terminal layers of the fibril are unable to form the interaction. We also have to consider that in our FibMap representation, sidechains are represented by a single point, so for some sites and types of interactions multiple interactions may occur (e.g. Arginine sidechains can form multiple hydrogen bonds). Finally, because the layers of some fibrils are 'staggered', interlayer interactions involving a given layer could occur between that layer and multiple other layers. For example, consider two sites, A and B, on a 4 layer fibril (**Figure 6**).
+For interlayer interactions, this means that the probabilties need to be adjusted to reflect the fact that in a finite fibril model (such as the Cryo-EM structures deposited on the PDB databank), the terminal layers of the fibril are unable to form the interaction. We also have to consider that in our FibMap representation, sidechains are represented by a single point, so for some sites and types of interactions multiple interactions may occur (e.g. Arginine sidechains can form multiple hydrogen bonds). Finally, because the layers of some fibrils are 'staggered', interlayer interactions involving a given layer could occur between that layer and multiple other layers. For example, consider two sites, A and B, on a 4 layer fibril (Figure 6).
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -132,22 +134,22 @@ For interlayer interactions, this means that the probabilties need to be adjuste
     </div>
 </div>
 <div class="caption">
-    **Figure 6:** Two interaction sites on a four layer fibril forming $\Delta \ell=1$ and $\Delta \ell=2$ interactions.
+    Figure 6: Two interaction sites on a four layer fibril forming $$\Delta \ell=1$$ and $\Delta \ell=2$ interactions.
 </div>
 
-On the FibMap, we will be representing two different interactions with the same representation, an $A_{i}\text{ }to\text{ }B_{i+1}$ interaction and an $A_{i}\text{ }to\text{ }B_{i+2}$ interaction. When calculating this probability we have to account for the fact that a maximum of 3 $A_{i}\text{ }to\text{ }B_{i+1}$ interactions can occur and a maximum of 2 $A_{i}\text{ }to\text{ }B_{i+2}$ interactions can occur. We also have to account for the fact that in the case that a single interaction does not occur, it does not necessarily change the overall probability of an $A_{i}\text{ }to\text{ }B_{j \neq i}$ interaction (e.g. if $A_{4}\text{ }to\text{ }B_{3}$ does not occur, but the probability of an $A_{i}\text{ }to\text{ }B_{i+2}$ is 1, then the overall probability of an $A_{i}\text{ }to\text{ }B_{j \neq i}$ interaction is still 1). So, the overall probability of an $A_{i}\text{ }to\text{ }B_{j \neq i}$ interaction at a given timestep, $f$, is given by:
+On the FibMap, we will be representing two different interactions with the same representation, an $$A_{i}\text{ }to\text{ }B_{i+1}$$ interaction and an $$A_{i}\text{ }to\text{ }B_{i+2}$$ interaction. When calculating this probability we have to account for the fact that a maximum of 3 $$A_{i}\text{ }to\text{ }B_{i+1}$$ interactions can occur and a maximum of 2 $$A_{i}\text{ }to\text{ }B_{i+2}$$ interactions can occur. We also have to account for the fact that in the case that a single interaction does not occur, it does not necessarily change the overall probability of an $$A_{i}\text{ }to\text{ }B_{j \neq i}$$ interaction (e.g. if $$A_{4}\text{ }to\text{ }B_{3}$$ does not occur, but the probability of an $$A_{i}\text{ }to\text{ }B_{i+2}$$ is 1, then the overall probability of an $$A_{i}\text{ }to\text{ }B_{j \neq i}$$ interaction is still 1). So, the overall probability of an $$A_{i}\text{ }to\text{ }B_{j \neq i}$$ interaction at a given timestep, $$f$$, is given by:
 
 $$p_{A_{i} \text{ } to \text{ } B_{j \neq i}}(f) = \mathrm{max} \left\lbrace p_{A_{i} \text{ } to \text{ } B_{i+1}}(f), \text{ } p_{A_{i} \text{ } to \text{ } B_{i+2}}(f), \text{ } p_{A_{i} \text{ } to \text{ } B_{i+1, i+2}}(f) \right\rbrace,$$
 
-where $p_{A_{i} \text{ } to \text{ } B_{i+1}}(f)$ is the probability that eligible sites are bound by an $A_{i} \text{ } to \text{ } B_{i+1}$ interaction, $p_{A_{i} \text{ } to \text{ } B_{i+2}}(f)$ is the probability that eligible sites are bound by an $A_{i} \text{ } to \text{ } B_{i+2}$ interaction, and $p_{A_{i} \text{ } to \text{ } B_{i+1, i+2}}(f)$ is the probability that elibile sites are bound by either an $A_{i} \text{ } to \text{ } B_{i+1}$ interaction or an $A_{i} \text{ } to \text{ } B_{i+2}$ interaction. We compute these subprobabilities by considering the number of sites involved in each interaction rather than by considering the number of interactions themselves, allowing us to extrapolate to an infinite fibril. These subprobabilities are given by:
+where $$p_{A_{i} \text{ } to \text{ } B_{i+1}}(f)$$ is the probability that eligible sites are bound by an $$A_{i} \text{ } to \text{ } B_{i+1}$$ interaction, $$p_{A_{i} \text{ } to \text{ } B_{i+2}}(f)$$ is the probability that eligible sites are bound by an $$A_{i} \text{ } to \text{ } B_{i+2}$$ interaction, and $$p_{A_{i} \text{ } to \text{ } B_{i+1, i+2}}(f)$$ is the probability that elibile sites are bound by either an $$A_{i} \text{ } to \text{ } B_{i+1}$$ interaction or an $$A_{i} \text{ } to \text{ } B_{i+2}$$ interaction. We compute these subprobabilities by considering the number of sites involved in each interaction rather than by considering the number of interactions themselves, allowing us to extrapolate to an infinite fibril. These subprobabilities are given by:
 
 $$p_{A_i \text{ } to \text{ } B_{i + \Delta \ell}}(f) = \frac{n_{s,bound}}{n_{s,eligible}},$$
 
-where $n_{s,eligible}=2(n_{layers}-\Delta \ell)$ is the number of eligible interaction sites given the fibril model (e.g. for the above example, $n_{s,eligible}=6$ for $p_{A_{i} \text{ } to \text{ } B_{i+1}}(f)$, $n_{s,eligible}=4$ for $p_{A_{i} \text{ } to \text{ } B_{i+2}}(f)$, and $n_{s,eligible}=6$ for $p_{A_{i} \text{ } to \text{ } B_{i+1,i+2}}(f)$). Here, $\Delta \ell$ is the number of layers spanned by a given subtype (e.g. $\Delta \ell (A_{i} \text{ } to \text{ } B_{i+1}) = 1$ and $\Delta \ell (A_{i} \text{ } to \text{ } B_{i+2}) = 2$), or the minimum $\Delta \ell$ for the combined subprobability (e.g. $\Delta \ell (A_{i} \text{ } to \text{ } B_{i+1, i+2}) = 1$), and $n_{layers}$ is the total number of layers in the fibril. $n_{s, bound}$ is the number of those sites involved in a given interaction (or in either interaction for the combined subprobability). We then take the ensemble average of the overall probability at each frame for each interaction: 
+where $$n_{s,eligible}=2(n_{layers}-\Delta \ell)$$ is the number of eligible interaction sites given the fibril model (e.g. for the above example, $$n_{s,eligible}=6$ for $p_{A_{i} \text{ } to \text{ } B_{i+1}}(f)$$, $$n_{s,eligible}=4$$ for $$p_{A_{i} \text{ } to \text{ } B_{i+2}}(f)$$, and $$n_{s,eligible}=6$$ for $$p_{A_{i} \text{ } to \text{ } B_{i+1,i+2}}(f)$$). Here, $$\Delta \ell$$ is the number of layers spanned by a given subtype (e.g. $$\Delta \ell (A_{i} \text{ } to \text{ } B_{i+1}) = 1$$ and $$\Delta \ell (A_{i} \text{ } to \text{ } B_{i+2}) = 2$$), or the minimum $$\Delta \ell$$ for the combined subprobability (e.g. $$\Delta \ell (A_{i} \text{ } to \text{ } B_{i+1, i+2}) = 1$$), and $$n_{layers}$$ is the total number of layers in the fibril. $$n_{s, bound}$$ is the number of those sites involved in a given interaction (or in either interaction for the combined subprobability). We then take the ensemble average of the overall probability at each frame for each interaction: 
 
 $$P(A_i \text{ } to \text{ } B_{j\neq i})=\frac{1}{n_{f}}\sum_f^{n_f} p_{A_{i} \text{ } to \text{ } B_{j \neq i}}(f).$$
 
-For Hydrogen Bonds, since more than one may form between a pair of sites, you also have the option to use a average number of interactions, $\langle N_{HB} \rangle$ cutoff for the FibMap. For an individual frame, the average number of interactions for a given pair of interaction sites is given by:
+For Hydrogen Bonds, since more than one may form between a pair of sites, you also have the option to use a average number of interactions, $$\langle N_{HB} \rangle$$ cutoff for the FibMap. For an individual frame, the average number of interactions for a given pair of interaction sites is given by:
 
 $$N_{A_i \text{ } to \text{ } B_{j\neq i}}(f) = \frac{2(n_{interactions})}{n_{s, weighted}},$$
 
@@ -155,7 +157,7 @@ where,
 
 $$n_{s,weighted} = \sum_{\Delta \ell}^{n_{\Delta \ell}}(2(n_{layers}-\Delta \ell)/n_{\Delta \ell}),$$ 
 
-and $n_{\Delta \ell}$ is the number of subtypes for this type of interaction (e.g. $n_{\Delta \ell}=2$ for our above example).
+and $$n_{\Delta \ell}$$ is the number of subtypes for this type of interaction (e.g. $$n_{\Delta \ell}=2$$ for our above example).
 
 Finally, we take the ensemble average of the overall average number of interactions for each frame:
 
@@ -167,11 +169,11 @@ For intralayer interactions, such complexity is not needed. At each frame, the p
 
 $$p_{A_i \text{ } to \text{ } B_i}(f) = \frac{n_{s,bound}}{n_{s}},$$
 
-where $n_s=2n_{layers}$ is the total number of sites. Similarly, the number of interactions per site is given by:
+where $$n_s=2n_{layers}$$ is the total number of sites. Similarly, the number of interactions per site is given by:
 
 $$N_{A_i \text{ } to \text{ } B_i}(f) = \frac{2(n_{interactions})}{n_{s}}.$$
 
-$P(A_i \text{ } to \text{ } B_i)$ and $\langle N(A_i \text{ } to \text{ } B_i) \rangle$ are then computed in the same manner as for interlayer interactions.
+Then, $$P(A_i \text{ } to \text{ } B_i)$$ and $$\langle N(A_i \text{ } to \text{ } B_i) \rangle$$ are then computed in the same manner as for interlayer interactions.
 
 ### Residue Positions
 
@@ -187,7 +189,7 @@ For the trajectory analysis (completed by the `FibMap.py traj` subcommand), the 
 
 $$N(f) = \sum_{i} \frac{1}{n_{layers}-\Delta \ell(i)},$$
 
-where $\Delta \ell$ us the layer separation between the two sites (i.e. for interaction $i$ between site $A$ in layer $\ell_A$ and site $B$ in layer $\ell_B$, $\Delta \ell(i))=|\ell_A - \ell_B |$.
+where $$\Delta \ell$$ us the layer separation between the two sites (i.e. for interaction $$i$$ between site $$A$$ in layer $$\ell_A$$ and site $$B$$ in layer $$\ell_B$$, $$\Delta \ell(i))=|\ell_A - \ell_B |$$.
 
 ## Installation
 
@@ -248,21 +250,21 @@ The `calc` subcommand is used to compute the intermolecular forces within the fi
 | Argument | Default | Description |
 |--- |--- |--- |
 | `--calctype {ALL, HB, SB, PI, HB+SB, HB+PI, SB+PI}` | ALL | What type of interaction to compute. Options are ALL, HB, SB, PI, HB+SB, HB+PI, and SB+PI. ALL computes all, options with HB computes hydrogen bonds, options with SB computes salt bridges, and options with PI computes pi stacking interactions. |
-| `-n/--n_protofilaments int` (int $\gt$ -2)| Required | The number of protofilaments in the fibril (i.e. how many segments are in each layer of the fibril). |
-| `--omit_layers int` (int $\geq$ 0) | 0 | How many layers on each end of the fibril to omit from analysis. This is especially important for analysis of simulation trajectories of a finite fibril model as delamination at the ends of the fibril will bias the results.|
-| `--hbond_distance_cutoff float` (float $\gt$ 0) | 3.5Å | The cutoff distance (in Å) for hydrogen bonds. The distance between a potential donor and potential acceptor must be less than this value to be counted as a hydrogen bond. |
-| `--hbond_angle_cutoff float` (float $\gt$ 0) | 150° | The cutoff angle (in degrees) for hydrogen bonds. The angle from a potential donor to a potential hydrogen to a potential acceptor must be greater than this value to be counted as a hydrogen bond. |
+| `-n/--n_protofilaments int` (int $$\gt$$ -2)| Required | The number of protofilaments in the fibril (i.e. how many segments are in each layer of the fibril). |
+| `--omit_layers int` (int $$\geq$$ 0) | 0 | How many layers on each end of the fibril to omit from analysis. This is especially important for analysis of simulation trajectories of a finite fibril model as delamination at the ends of the fibril will bias the results.|
+| `--hbond_distance_cutoff float` (float $$\gt$$ 0) | 3.5Å | The cutoff distance (in Å) for hydrogen bonds. The distance between a potential donor and potential acceptor must be less than this value to be counted as a hydrogen bond. |
+| `--hbond_angle_cutoff float` (float $$\gt$$ 0) | 150° | The cutoff angle (in degrees) for hydrogen bonds. The angle from a potential donor to a potential hydrogen to a potential acceptor must be greater than this value to be counted as a hydrogen bond. |
 | `--saltbridge_selection_mode {auto, manual}` | auto | The salt bridge participant selection mode. If auto, `--saltbridge_anion_charge_cutoff` and `--saltbridge_cation_charge_cutoff` will be used to identify potential salt bridge participants. If manual, `--saltbridge_anion_sel` and `--saltbridge_cation_sel` will be used to find the participants. |
 | `--saltbridge_anion_charge_cutoff float` | -0.5e | Used if `--saltbridge_selection_mode auto`. Charge cutoff (in e) for salt bridge participant selection. If an atom group belonging to a anionic residue has a charge less than this value, it will be considered a salt bridge participant. |
 | `--saltbridge_cation_charge_cutoff float` | -0.5e | Used if `--saltbridge_selection_mode auto`. Charge cutoff (in e) for salt bridge participant selection. If an atom group belonging to a cationic residue has a charge greater than this value, it will be considered a salt bridge participant. |
 | `--saltbridge_anion_sel MDAnalysis_Selection_String` | ((resname ASP and name OD1 OD2) or (resname GLU and name OE1 OE2)) | Used if `--saltbridge_selection_mode manual`. Selection command for anionic salt bridge participants. For help formatting this string, see the [MDAnalysis Documentation](https://docs.mdanalysis.org/stable/documentation_pages/selections.html). |
 | `--saltbridge_cation_sel MDAnalysis_Selection_String` | ((resname LYS and name NZ) or (resname ARG and name NH1 NH2 NE) or (resname HSP and name ND1 NE2)) | Used if `--saltbridge_selection_mode manual`. Selection command for cationic salt bridge participants. For help formatting this string, see the [MDAnalysis Documentation](https://docs.mdanalysis.org/stable/documentation_pages/selections.html). |
-| `--saltbridge_distance_cutoff float` (float $\gt$ 0) | 4.0Å | The cutoff distance (in Å) for salt bridges. The minimum distance between anionic and cationic groups must be less than or equal to this value to be counted as a salt bridge. |
+| `--saltbridge_distance_cutoff float` (float $$\gt$$ 0) | 4.0Å | The cutoff distance (in Å) for salt bridges. The minimum distance between anionic and cationic groups must be less than or equal to this value to be counted as a salt bridge. |
 | `--pistacking_phe_sel MDAnalysis_Selection_String` | (resname PHE and name CG CD2 CE2 CZ CE1 CD1) | The MDAnalysis selection command for phenylalanine rings. For help formatting this string, see the [MDAnalysis Documentation](https://docs.mdanalysis.org/stable/documentation_pages/selections.html). |
 | `--pistacking_tyr_sel MDAnalysis_Selection_String` | (resname TYR and name CG CD2 CE2 CZ CE1 CD1) | The MDAnalysis selection command for tyrosine rings. For help formatting this string, see the [MDAnalysis Documentation](https://docs.mdanalysis.org/stable/documentation_pages/selections.html). |
 | `--pistacking_his_sel MDAnalysis_Selection_String` | (resname HSD HSE HSP and name CG CD2 NE2 CE1 ND1) | The MDAnalysis selection command for histidine rings. For help formatting this string, see the [MDAnalysis Documentation](https://docs.mdanalysis.org/stable/documentation_pages/selections.html). |
 | `--pistacking_trp_sel MDAnalysis_Selection_String` | (resname TRP and name CG CD1 NE1 CE2 CD2) | The MDAnalysis selection command for tryptophan rings (should be for the 5-membered ring). For help formatting this string, see the [MDAnalysis Documentation](https://docs.mdanalysis.org/stable/documentation_pages/selections.html). |
-| `--nprocs int` (int $\geq$-2) | 1 | How many processors to use for hydrogen bond and pi stacking calculations. Use -1 to use all available processors, -2 to use half of the available processors, or some positive integer. |
+| `--nprocs int` (int $$\geq$$-2) | 1 | How many processors to use for hydrogen bond and pi stacking calculations. Use -1 to use all available processors, -2 to use half of the available processors, or some positive integer. |
 
 #### Additional Help
 
@@ -278,10 +280,10 @@ using MDAnalysis.
     </div>
 </div>
 <div class="caption">
-    **Figure 7:** An example fibril showing the proper order of segments in the topology. The fibril shown is an extended version of the human Serum Amyloid A (hSAA) fibril resolved by Cryo-EM ([PDB 6MST](https://www.rcsb.org/structure/6MST)) by Liberta et al. [12].
+    Figure 7: An example fibril showing the proper order of segments in the topology. The fibril shown is an extended version of the human Serum Amyloid A (hSAA) fibril resolved by Cryo-EM ([PDB 6MST](https://www.rcsb.org/structure/6MST)) by Liberta et al. [12].
 </div>
 
-The proper order should be layer by layer and protofilament by protofilament. For example, consider the fibril shown in **Figure 7** with 12 layers and 2 protofilaments. Each segment is named with P[Protofilament #][Layer #] (e.g. the segment in layer 1 and protofilament 1 is P11, the segment in layer 1 and protofilament 2 is P21), the segment in layer 2 and protofilament 1 is P12, etc.).
+The proper order should be layer by layer and protofilament by protofilament. For example, consider the fibril shown in Figure 7 with 12 layers and 2 protofilaments. Each segment is named with P[Protofilament #][Layer #] (e.g. the segment in layer 1 and protofilament 1 is P11, the segment in layer 1 and protofilament 2 is P21), the segment in layer 2 and protofilament 1 is P12, etc.).
 
 The order of the segments in the topology file should be:
 1. Layer 1, Protofilament 1 (P11)
@@ -386,13 +388,13 @@ After the intermolecular forces have been computed with the `calc` subcommand, t
 
 | Argument | Default | Description |
 |--- |--- |--- |
-| `--p_cutoff float` (0 $\leq$ float $\leq$ 1) | 0.5 | Probability cutoff for hydrogen bonds, salt bridges, and pi stacking interactions. If the probability of a given interaction is less than this value then it will not be displayed on the map. (TIP: To hide all interactions, set this value to 1 and do not set `--hbond_n_cutoff`, `--hbond_p_cutoff`, `--saltbridge_p_cutoff`, or `--pistacking_p_cutoff`). |
-| `--hbond_p_cutoff float` (0 $\leq$ float $\leq$ 1) | None | Individually set the probability cutoff for hydrogen bonds. If not set, p_cutoff will be used. (TIP: To hide all hydrogen bonds, set this value to 1 and do not set `--hbond_n_cutoff`). |
-| `--hbond_n_cutoff float` (float $\geq$ 0) | None | If set, the average number of hydrogen bonds per frame formed between two groups will be used to determine whether or not a hydrogen bond is shown on the figure instead of a probability cutoff. If the average number of hydrogen bonds per frame is less than this cutoff then the hydrogen bond will not be displayed on the map. |
-| `--saltbridge_p_cutoff float` (0 $\leq$ float $\leq$ 1) | None | Individually set the probability cutoff for salt bridges. If not set, p_cutoff will be used. (TIP: To hide all salt bridges, set this value to 1). |
-| `--pistacking_p_cutoff float` (0 $\leq$ float $\leq$ 1) | None | Individually set the probability cutoff for pi stacking interactions. If not set, p_cutoff will be used. (TIP: To hide all pi stacking interactions, set this value to 1). |
+| `--p_cutoff float` (0 $$\leq$$ float $$\leq$$ 1) | 0.5 | Probability cutoff for hydrogen bonds, salt bridges, and pi stacking interactions. If the probability of a given interaction is less than this value then it will not be displayed on the map. (TIP: To hide all interactions, set this value to 1 and do not set `--hbond_n_cutoff`, `--hbond_p_cutoff`, `--saltbridge_p_cutoff`, or `--pistacking_p_cutoff`). |
+| `--hbond_p_cutoff float` (0 $$\leq$$ float $$\leq$$ 1) | None | Individually set the probability cutoff for hydrogen bonds. If not set, p_cutoff will be used. (TIP: To hide all hydrogen bonds, set this value to 1 and do not set `--hbond_n_cutoff`). |
+| `--hbond_n_cutoff float` (float $$\geq$$ 0) | None | If set, the average number of hydrogen bonds per frame formed between two groups will be used to determine whether or not a hydrogen bond is shown on the figure instead of a probability cutoff. If the average number of hydrogen bonds per frame is less than this cutoff then the hydrogen bond will not be displayed on the map. |
+| `--saltbridge_p_cutoff float` (0 $$\leq$$ float $$\leq$$ 1) | None | Individually set the probability cutoff for salt bridges. If not set, p_cutoff will be used. (TIP: To hide all salt bridges, set this value to 1). |
+| `--pistacking_p_cutoff float` (0 $$\leq$$ float $$\leq$$ 1) | None | Individually set the probability cutoff for pi stacking interactions. If not set, p_cutoff will be used. (TIP: To hide all pi stacking interactions, set this value to 1). |
 | `--[no]legend` | legend | If legend, a legend will be included in the figure. |
-| `--nprocs int` (int $\geq$ -2) | 1 | How many processors to use for the position calculation. Use -1 to use all available processors, -2 to use half of the available processors, or some positive integer. |
+| `--nprocs int` (int $$\geq$$ -2) | 1 | How many processors to use for the position calculation. Use -1 to use all available processors, -2 to use half of the available processors, or some positive integer. |
 
 
 #### Additional Help
@@ -407,11 +409,11 @@ The above parameters (and the additional parameters below) can be provided in an
 | `water_region = WaterRegion` | None | Define the location of a water channel. See **[Additional Help:](#additional-help-1) Specifying Shaded Regions** below for details. Multiple can be defined with separate entries. |
 | `zipper_region = ZipperRegion` | None | Define the location of a hydrophobic zipper. See **[Additional Help:](#additional-help-1) Specifying Shaded Regions** below for details. Multiple can be defined with separate entries. |
                         
-**Figure Settings**
+Figure Settings
 | Argument | Default | Description |
 |--- |--- |--- |
-| `figure_width = float` (float $\gt$ 0) | 6.5 | Figure width in inches. |
-| `figure_height = float` (float $\gt$ 0) | 4.5 | Figure height in inches. |
+| `figure_width = float` (float $$\gt$$ 0) | 6.5 | Figure width in inches. |
+| `figure_height = float` (float $$\gt$$ 0) | 4.5 | Figure height in inches. |
 | `figure_dpi = int` | 300 | The figure resolution in dots per inch (dpi). |
 | `transparent_background = True/False` | False | Make the figure transparent |
 | `numbered_residues = True/False` | False | By default, the residues will be labelled with their 1-letter residue name abbreviation. If you use this option, they will instead be labelled with their one-based residue index. This is useful for determining shaded regions. |
@@ -439,11 +441,11 @@ The above parameters (and the additional parameters below) can be provided in an
 | `pistacking_color_1 = color` | gray | Line color for pi stacking interaction lines and edge color for pi stacking interaction markers. |
 | `pistacking_color_2 = color` | white | Fill color for pi stacking interaction markers and dashed line color for pi stacking interactions that are both intra-and inter-layer. |
 | `water_color = color` | powderblue | Color of water regions. |
-| `water_opacity = float` (0 $\leq$ float $\leq$ 1) | 0.5 | Opacity of water regions. |
+| `water_opacity = float` (0 $$\leq$$ float $$\leq$$ 1) | 0.5 | Opacity of water regions. |
 | `zipper_color = color` | tan | Color of hydrophobic zipper regions. |
-| `zipper_opacity = float` (0 $\leq$ float $\leq$ 1) | 0.5 | Opacity of hydrophobic zipper regions. |
+| `zipper_opacity = float` (0 $$\leq$$ float $$\leq$$ 1) | 0.5 | Opacity of hydrophobic zipper regions. |
 
-> *NOTE: See **Figure 8** below for color guide.*
+> *NOTE: See Figure 8 below for color guide.*
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -451,7 +453,7 @@ The above parameters (and the additional parameters below) can be provided in an
     </div>
 </div>
 <div class="caption">
-    **Figure 8:** Guide to adjustable colors.
+    Figure 8: Guide to adjustable colors.
 </div>
 
 **Input File Template**
@@ -541,7 +543,7 @@ A hydrophobic zipper between residues 1 to 32 on protofilament 1 and residues 1 
     </div>
 </div>
 <div class="caption">
-    **Figure 9:** Example of a FibMap showing a hydrophobic zipper. This image was generated using FibMap and [PDB 6MST](https://www.rcsb.org/structure/6MST) [[12]](#references).
+    Figure 9: Example of a FibMap showing a hydrophobic zipper. This image was generated using FibMap and [PDB 6MST](https://www.rcsb.org/structure/6MST) [[12]](#references).
 </div>
 
 To add this region to the visualization add the following line to your input file: 
@@ -559,7 +561,7 @@ Two water channels encompassed by residues 22-50 of protofilament 1 and 22-50 of
     </div>
 </div>
 <div class="caption">
-    **Figure 10:** Example of a FibMap showing two water channels. *NOTE: This image was generated using FibMap and [PDB 6MST](https://www.rcsb.org/structure/6MST) [[12]](#references)*
+    Figure 10: Example of a FibMap showing two water channels. *NOTE: This image was generated using FibMap and [PDB 6MST](https://www.rcsb.org/structure/6MST) [[12]](#references)*
 </div>
 
 To add these region to the visualization you can define them within your map input file by adding the following lines: 
@@ -621,10 +623,10 @@ Use this subcommand to analyze the trajectory from the calc subcommand (with --s
 
 | Argument | Default | Description |
 |--- |--- |--- |
-| `--figure_width int` (int $\gt$ 0) | 3.5in | Set the figure width in inches. |
-| `--figure_height int` (int $\gt$ 0) | 4in | Set the figure height in inches. |
-| `--figure_dpi int` (int $\gt$ 0) | 300dpi | Set the figure resolution in dots per inch. |
-| `--fontsize float` (float $\gt$ 0) | 6pt | Set the fontsize used on the plot. The font is Arial. |
+| `--figure_width int` (int $$\gt$$ 0) | 3.5in | Set the figure width in inches. |
+| `--figure_height int` (int $$\gt$$ 0) | 4in | Set the figure height in inches. |
+| `--figure_dpi int` (int $$\gt$$ 0) | 300dpi | Set the figure resolution in dots per inch. |
+| `--fontsize float` (float $$\gt$$ 0) | 6pt | Set the fontsize used on the plot. The font is Arial. |
 | `--total_color color` | black | Color of the total lines. |
 | `--intralayer_color` | black | Color of the intralayer lines. |
 | `--interlayer_color` | black | Color of the interlayer lines. |
@@ -719,11 +721,11 @@ end
 | **calc_[calctype].cpt** | A checkpoint file to pick up the calculation from where it last left off. This file is always created. In order to avoid clashes with other `calc` checkpoint files, the file is named using the calctype (e.g. if `--calctype all` then the file is named calc_ALL.cpt). This file should be fed into `map` using the `--checkpoint_file` argument. This file can also be fed back into `calc` using the `--checkpoint_file` argument to pick up where it left off. If a file with this name already exists in the output directory this file will be backed up unless the `--nobackup` flag is used. |
 | **calc_[calctype].log** | A log file containing STDOUT. This file is created if the `--log` flag is used. In order to avoid clashes with other `calc` log files, the file is named using the calctype (e.g. if `--calctype all` then the file is named calc_ALL.log). If a file with this name already exists in the output directory this file will be backed up unless the `--nobackup` flag is used. |
 | **unprocessed_hydrogen_bonds.npy** | A .npy file containing a NumPy array of all hydrogen bonds calculated throughout a trajectory. This file is only written if the `--saveraw` flag is used. This is an array of floats with a row for each instance of a hydrogen bond. The columns contain the frame, donor atom index, hydrogen atom index, acceptor atom index, distance, and angle of a hydrogen bond. This is the output of the MDAnalysis hydrogen bond calculator, so for more help please see the [MDAnalysis Documentation](https://docs.mdanalysis.org/stable/documentation_pages/analysis/hydrogenbonds.html). |
-| **processed_hydrogen_bonds.npy** | A .npy file containing a NumPy array of each type of hydrogen bond and their probabilities. This is an array of floats with a row for each type of hydrogen bond. The columns contain the donor protofilament index (one-based), the donor residue index (one-based), the donor type (0=backone, 1=sidechain, 2=terminus), the acceptor protofilament index (one-based), the acceptor residue index (one-based), the acceptor type (0=backone, 1=sidechain, 2=terminus), Intralayer $\langle N_{HB} \rangle$, Intralayer $P(HB)$, Interlayer $\langle N_{HB} \rangle$, and Interlayer $P(HB)$. |
+| **processed_hydrogen_bonds.npy** | A .npy file containing a NumPy array of each type of hydrogen bond and their probabilities. This is an array of floats with a row for each type of hydrogen bond. The columns contain the donor protofilament index (one-based), the donor residue index (one-based), the donor type (0=backone, 1=sidechain, 2=terminus), the acceptor protofilament index (one-based), the acceptor residue index (one-based), the acceptor type (0=backone, 1=sidechain, 2=terminus), Intralayer $$\langle N_{HB} \rangle$$, Intralayer $$P(HB)$$, Interlayer $$\langle N_{HB} \rangle$$, and Interlayer $$P(HB)$$. |
 | **unprocessed_salt_bridges.npy** | A .npy file containing a NumPy array of all salt bridges calculated throughout a trajectory. This file is only written if the `--saveraw` flag is used. This is an array of floats with a row for each instance of a salt bridge. The columns contain the frame, anionic layer index (one-based), anionic protofilament index (one-based), anionic residue index (one-based), cationic layer index (one-based), cationic protofilament index (one-based), cationic residue index (one-based), and the distance between the charged groups. |
-| **processed_salt_bridges.npy** | A .npy file containing a NumPy array of each type of salt bridge and their probabilities. This is an array of floats with a row for each type of salt bridge. The columns contain the anion protofilament index (one-based), the anion residue (one-based), the cation protofilament index (one-based), the cation residue index (one-based), intralayer $P(SB)$,  and interlayer $P(SB)$. |
-| **unprocessed_pistacking_interactions.npy** | A .npy file containing a NumPy array of all pi stacking interactions calculated throughout a trajectory. This file is only written if the `--saveraw` flag is used. This is an array of floats with a row for each instance of a pi stacking interaction. The columns contain the frame, layer A index (one-based), protofilament A index (one-based), residue A index (one-based), layer B index (one-based), protofilament B index (one-based), residue B index (one-based), centroid-centroid distance, $\gamma$ angle, $\delta$ angle, $\theta$ angle, and type (0=Sandwich, 1=parallel displaced, 2=Intermediate, 3=T-shaped). |
-| **processed_pistacking_interactions.npy** | A .npy file containing a NumPy array of each type of pi stacking interaction and their probabilities. This is an array of floats with a row for each type of pi stacking interaction. The columns contain Protofilament A index (one-based), Residue A index (one-based), Protofilament B index (one-based), Residue B index (one-based), Intralayer $P(\mathrm{Total})$, Intralayer $P(\mathrm{T-Shaped})$, Intralayer $P(\mathrm{Intermediate})$, Intralayer $P(\mathrm{Sandwich})$, Intralayer $P(\mathrm{Parallel \text{ } Displaced})$, Interlayer $P(\mathrm{Total})$, Interlayer $P(\mathrm{T-Shaped})$, Interlayer $P(\mathrm{Intermediate})$, Interlayer $P(\mathrm{Sandwich})$, Interlayer $P(\mathrm{Parallel \text{ } Displaced})$. |
+| **processed_salt_bridges.npy** | A .npy file containing a NumPy array of each type of salt bridge and their probabilities. This is an array of floats with a row for each type of salt bridge. The columns contain the anion protofilament index (one-based), the anion residue (one-based), the cation protofilament index (one-based), the cation residue index (one-based), intralayer $$P(SB)$$,  and interlayer $$P(SB)$$. |
+| **unprocessed_pistacking_interactions.npy** | A .npy file containing a NumPy array of all pi stacking interactions calculated throughout a trajectory. This file is only written if the `--saveraw` flag is used. This is an array of floats with a row for each instance of a pi stacking interaction. The columns contain the frame, layer A index (one-based), protofilament A index (one-based), residue A index (one-based), layer B index (one-based), protofilament B index (one-based), residue B index (one-based), centroid-centroid distance, $$\gamma$$ angle, $$\delta$$ angle, $$\theta$$ angle, and type (0=Sandwich, 1=parallel displaced, 2=Intermediate, 3=T-shaped). |
+| **processed_pistacking_interactions.npy** | A .npy file containing a NumPy array of each type of pi stacking interaction and their probabilities. This is an array of floats with a row for each type of pi stacking interaction. The columns contain Protofilament A index (one-based), Residue A index (one-based), Protofilament B index (one-based), Residue B index (one-based), Intralayer $$P(\mathrm{Total})$$, Intralayer $$P(\mathrm{T-Shaped})$$, Intralayer $$P(\mathrm{Intermediate})$$, Intralayer $$P(\mathrm{Sandwich})$$, Intralayer $$P(\mathrm{Parallel \text{ } Displaced})$$, Interlayer $$P(\mathrm{Total})$$, Interlayer $$P(\mathrm{T-Shaped})$$, Interlayer $$P(\mathrm{Intermediate})$$, Interlayer $$P(\mathrm{Sandwich})$$, Interlayer $$P(\mathrm{Parallel \text{ } Displaced})$$. |
 
 > *NOTE: The NumPy arrays within .npy files can be opened with:* `array = numpy.load(FileName)`
 
@@ -739,21 +741,21 @@ end
 ##### About map_positions.npz
 
 This .npz file contains the following four NumPy arrays:
-* **CA**: Contains the $\alpha$-Carbon positions
+* **CA**: Contains the $$\alpha$$-Carbon positions
   
-   This is an array of shape ($N_{\mathrm{protofilaments}}$, $N_{\mathrm{residues}}$, $2$). For each residue in each chain, its position on the map is provided in Å.
+   This is an array of shape ($$N_{\mathrm{protofilaments}}$$, $$N_{\mathrm{residues}}$$, $$2$$). For each residue in each chain, its position on the map is provided in Å.
 
 * **SC**: Contains the sidechain positions
   
-   This is an array of shape ($N_{\mathrm{protofilaments}}$, $N_{\mathrm{residues}}$, $2$). For each residue in each chain, the center of mass of its sidechain on the plane of the map is provided in Å.
+   This is an array of shape ($$N_{\mathrm{protofilaments}}$$, $$N_{\mathrm{residues}}$$, $$2$$). For each residue in each chain, the center of mass of its sidechain on the plane of the map is provided in Å.
 
 * **CT**: Contains the C-terminus positions
   
-   This is an array of shape ($N_{\mathrm{protofilaments}}$, $2$). For each chain, the center of mass of the terminal atoms of its C-terminal residue on the plane of the map is provided in Å.
+   This is an array of shape ($$N_{\mathrm{protofilaments}}$$, $$2$$). For each chain, the center of mass of the terminal atoms of its C-terminal residue on the plane of the map is provided in Å.
 
 * **NT**: Contains the N-terminus positions
   
-   This is an array of shape ($N_{\mathrm{protofilaments}}$, $2$). For each chain, the center of mass of the terminal atoms of its N-terminal residue on the plane of the map is provided in Å.
+   This is an array of shape ($$N_{\mathrm{protofilaments}}$$, $$2$$). For each chain, the center of mass of the terminal atoms of its N-terminal residue on the plane of the map is provided in Å.
 
 These arrays can be accessed using NumPy:
 
@@ -782,20 +784,20 @@ file.close() # Need to close the file
 This .npz file always contains the following array:
 * **times**: Contains the times of each frame
   
-   This is an array of shape ($N_{\mathrm{frames}}$,). For each frame, its time is provided in units of picoseconds.
+   This is an array of shape ($$N_{\mathrm{frames}}$$,). For each frame, its time is provided in units of picoseconds.
 
 This .npz file will contain at least one of the following arrays:
 * **HB**: Contains the number of hydrogen bonds per layer at each frame
   
-   This is an array of shape ($N_{\mathrm{frames}}$, $3$). For each frame, the average number of intralayer, interlayer, and total hydrogen bonds per layer are provided in columns 1, 2, and 3, respectively.
+   This is an array of shape ($$N_{\mathrm{frames}}$$, $$3$$). For each frame, the average number of intralayer, interlayer, and total hydrogen bonds per layer are provided in columns 1, 2, and 3, respectively.
 
 * **SB**: Contains the number of salt bridges per layer at each frame
   
-   This is an array of shape ($N_{\mathrm{frames}}$, $3$). For each frame, the average number of intralayer, interlayer, and total salt bridges per layer are provided in columns 1, 2, and 3, respectively.
+   This is an array of shape ($$N_{\mathrm{frames}}$$, $$3$$). For each frame, the average number of intralayer, interlayer, and total salt bridges per layer are provided in columns 1, 2, and 3, respectively.
 
 * **PI**: Contains the number of pi stacking interactions per layer at each frame
   
-   This is an array of shape ($N_{\mathrm{frames}}$, $3$). For each frame, the average number of intralayer, interlayer, and total pi stacking interactions per layer are provided in columns 1, 2, and 3, respectively.
+   This is an array of shape ($$N_{\mathrm{frames}}$$, $$3$$). For each frame, the average number of intralayer, interlayer, and total pi stacking interactions per layer are provided in columns 1, 2, and 3, respectively.
 
 These arrays can be accessed using NumPy:
 
@@ -848,7 +850,7 @@ All of the necessary files for the following two tutorials can be found in the t
 </div>
 </div>
 <div class="caption">
-    **Figure 11:** Segment location figure from correct_pdb.py for tutorial 1.
+    Figure 11: Segment location figure from correct_pdb.py for tutorial 1.
 </div>
   
    - Follow the instructions outputted by the program. You should end up entering the following lines and then hitting [Enter] again:
@@ -875,7 +877,7 @@ All of the necessary files for the following two tutorials can be found in the t
 </div>
 </div>
 <div class="caption">
-    **Figure 12:** Output for Tutorial 1.
+    Figure 12: Output for Tutorial 1.
 </div>
 
 ### Tutorial 2: Creating a FibMap from an MD Trajectory
@@ -904,7 +906,7 @@ A sample trajectory with its topology file is provided in the tutorials/tutorial
 </div>
 </div>
 <div class="caption">
-    **Figure 13:** Map output for Tutorial 2.
+    Figure 13: Map output for Tutorial 2.
 </div>
 
 1. Run the traj step of FibMap using traj_input.inp
@@ -919,7 +921,7 @@ A sample trajectory with its topology file is provided in the tutorials/tutorial
 </div>
 </div>
 <div class="caption">
-    **Figure 14:** Trajectory analysis output for Tutorial 2. The figure shows the number of each type of interaction per layer for each frame.
+    Figure 14: Trajectory analysis output for Tutorial 2. The figure shows the number of each type of interaction per layer for each frame.
 </div>
 
 ## References 
