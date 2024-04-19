@@ -15,7 +15,7 @@ mermaid:
 ---
 
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
         {% include figure.liquid loading="eager" path="assets/img/fibmap/FibMap_Logo.png" title="FibMap Logo" class="img-fluid rounded z-depth-1" width="50%" %}
     </div>
 </div>
@@ -195,7 +195,7 @@ For the trajectory analysis (completed by the `FibMap.py traj` subcommand), the 
 
 $$N(f) = \sum_{i} \frac{1}{n_{layers}-\Delta \ell(i)},$$
 
-where $$\Delta \ell$$ us the layer separation between the two sites (i.e. for interaction $$i$$ between site $$A$$ in layer $$\ell_A$$ and site $$B$$ in layer $$\ell_B$$, $$\Delta \ell(i) = |\ell_A - \ell_B |$$.
+where $$\Delta \ell$$ us the layer separation between the two sites (i.e. for interaction $$i$$ between site $$A$$ in layer $$\ell_A$$ and site $$B$$ in layer $$\ell_B$$, $$\Delta \ell(i) = \|\ell_A - \ell_B \|$$.
 
 ## Installation
 
@@ -826,7 +826,7 @@ file.close() # Need to close the file
 
 ## Tutorials
 
-Before starting download all of the necessary files for the following two tutorials <a href="{{ 'tutorials.zip' | prepend: 'assets/zip/' | relative_url}}" download >here</a>.
+Before starting download all of the necessary files for the following two tutorials <a href="{{ 'tutorials.zip' | prepend: 'assets/zip/' | relative_url}}" download target="_blank" rel="noopener noreferrer">here</a>.
 
 ### Tutorial 1: Creating a FibMap from a PDB
 
