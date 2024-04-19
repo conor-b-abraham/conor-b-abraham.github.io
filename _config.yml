@@ -168,15 +168,15 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Collections
 # -----------------------------------------------------------------------------
 
-# collections:
+collections:
+  resources:
+    output: false
+    permalink: /resources/:path/
 #   news:
 #     defaults:
 #       layout: post
 #     output: false
 #     permalink: /news/:path/
-  resources:
-    output: false
-    permalink: /resources/:path/
 
 # announcements:
 #   enabled: false
