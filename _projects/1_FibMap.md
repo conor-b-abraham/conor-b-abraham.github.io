@@ -9,11 +9,14 @@ related_publications: false
 github: https://github.com/conor-b-abraham/FibMap
 toc:
   sidebar: left
+mermaid:
+  enabled: true
+  zoomable: false
 ---
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/fibmap/FibMap_Logo.png" title="FibMap Logo" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/FibMap_Logo.png" title="FibMap Logo" class="img-fluid rounded z-depth-1" width="50%" %}
     </div>
 </div>
 
@@ -49,7 +52,7 @@ Potential hydrogen bond acceptors and hydrogens are guessed using the atom charg
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/fibmap/HBonds.png" title="Hydrogen Bond Calculation" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/HBonds.png" title="Hydrogen Bond Calculation" class="img-fluid rounded z-depth-1" width="50%" %}
     </div>
 </div>
 <div class="caption">
@@ -89,7 +92,7 @@ If done automatically, charged residues are identified using the atom charges in
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/fibmap/PiStacking.png" title="Pi Stacking Determination" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/PiStacking.png" title="Pi Stacking Determination" class="img-fluid rounded z-depth-1" zoomable=true width="30%" %}
     </div>
 </div>
 <div class="caption">
@@ -117,6 +120,7 @@ At this time, the calculation of pi stacking interactions depends upon residue a
 | Tyrosine | TYR | CG, CD2, CE2, CZ, CE1, CD1 |
 | Histidine | HSD, HSE, HSP | CG, CD2, NE2, CE1, ND1 |
 | Tryptophan | TRP | CG CD1, NE1, CE2, CD2 |
+
 <div class="caption">
     Table 2: The default residue and atom names used to select the aromatic rings that could participate in a pi stacking interaction. *NOTE: Notice that the 5-membered ring (not the 6-membered ring) is used for Tryptophan. This follows the guidance of Zhao et al (2015) [[13]](#references).*
 </div>
@@ -132,7 +136,7 @@ For interlayer interactions, this means that the probabilties need to be adjuste
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/fibmap/ProbsSingle.png" title="Pi Stacking Types" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/ProbsSingle.png" title="Interlayer Figure" class="img-fluid rounded z-depth-1" width="30%" %}
     </div>
 </div>
 <div class="caption">
@@ -278,7 +282,7 @@ using MDAnalysis.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/fibmap/topology_order.png" title="Topology file segid order" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/topology_order.png" title="Topology file segid order" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -453,7 +457,7 @@ The above parameters (and the additional parameters below) can be provided in an
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/fibmap/ColorGuide.png" title="Color Guide" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/ColorGuide.png" title="Color Guide" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -543,7 +547,7 @@ A hydrophobic zipper between residues 1 to 32 on protofilament 1 and residues 1 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/fibmap/zipperregionfibmap.png" title="Zipper Region" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/zipperregionfibmap.png" title="Zipper Region" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -561,7 +565,7 @@ Two water channels encompassed by residues 22-50 of protofilament 1 and 22-50 of
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/fibmap/waterregionfibmap.png" title="Water Channel" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/waterregionfibmap.png" title="Water Channel" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -849,7 +853,7 @@ All of the necessary files for the following two tutorials can be found in the t
     
 <div class="row">
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/fibmap/prepared_segment_locs.png" title="Segment Locations Tutorial 1" class="img-fluid rounded z-depth-1" zoomable=true %}
+    {% include figure.liquid loading="eager" path="assets/img/fibmap/prepared_segment_locs.png" title="Segment Locations Tutorial 1" class="img-fluid rounded z-depth-1" width="75%" %}
 </div>
 </div>
 <div class="caption">
@@ -920,7 +924,7 @@ A sample trajectory with its topology file is provided in the tutorials/tutorial
 
 <div class="row">
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/fibmap/Tutorial2_Traj.png" title="Trajectory Result Tutorial 2" class="img-fluid rounded z-depth-1" zoomable=true %}
+    {% include figure.liquid loading="eager" path="assets/img/fibmap/Tutorial2_Traj.png" title="Trajectory Result Tutorial 2" class="img-fluid rounded z-depth-1" zoomable=true width="75%" %}
 </div>
 </div>
 <div class="caption">
