@@ -36,7 +36,7 @@ FibMap.py was created to aid the analysis of the evergrowing collection of amylo
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/fibmap/abstract.png" title="FibMap creates maps of the contacts within an amyloid fibril" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/abstract.png" title="FibMap creates maps of the contacts within an amyloid fibril" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -80,7 +80,7 @@ Determination of charged residues capable of forming salt bridges can be done ma
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/fibmap/SaltBridgeAuto.png" title="Salt Bridge group Automatic Determination" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/SaltBridgeAuto.png" title="Salt Bridge group Automatic Determination" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -93,11 +93,11 @@ If done automatically, charged residues are identified using the atom charges in
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-        {% include figure.liquid loading="eager" path="assets/img/fibmap/PiStacking.png" title="Pi Stacking Determination" class="img-fluid rounded z-depth-1" zoomable=true width="30%" %}
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/PiStacking.png" title="Pi Stacking Determination" class="img-fluid rounded z-depth-1" width="30%" %}
     </div>
 </div>
 <div class="caption">
-    Figure 4: Various measures used in finding and categorizing pi stacking interactions. Based on Fig. 2 from Zhao et al. (2015) [[13]](#references).
+    Figure 4: Various measures used in finding and categorizing pi stacking interactions. Based on Fig. 2 from Zhao et al. (2015) [<a href='https://conor-b-abraham.github.io/resources/1_FibMap/#references'>13</a>].
 </div>
 
 To calculate pi-stacking interactions, FibMap follows the methodology developed by Zhao et al. [[13]](#references). For the ring of each phenylalanine, tyrosine, histidine, and tryptophan residue, we define its normal vector ($$\mathbf{n_i}$$), ring plane vector ($$\mathbf{r_i}$$), and centroid (Figure 4). Then, for each pair of rings, we calculate their centroid-centroid distance ($$\mathrm{R_{cen}}$$), the acute angle between the centroid-centroid vector and $$\mathbf{r_1}$$ ($$\theta$$), the acute angle between the centroid-centroid vector and $$\mathbf{r_2}$$, and the acute angle between $$\mathbf{n_1}$$ and $$\mathbf{n_2}$$ (Figure 4).
@@ -106,11 +106,11 @@ Any pair with $$\mathrm{R_{cen}} \leq 7.2$$ Å could be a pi stacking interactio
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/fibmap/PiStackingTypes.png" title="Pi Stacking Types" class="img-fluid rounded z-depth-1" zoomable=true %}
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/PiStackingTypes.png" title="Pi Stacking Types" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Figure 5: The three main types of pi stacking interactions (Sandwich, T-Shaped, and Parallel Displaced). Intermediate pi stacking interactions (not shown) are between Sandwich and T-Shaped geometry. Based on Fig. 1 from Zhao et al. (2015) [[13]](#references).
+    Figure 5: The three main types of pi stacking interactions (Sandwich, T-Shaped, and Parallel Displaced). Intermediate pi stacking interactions (not shown) are between Sandwich and T-Shaped geometry. Based on Fig. 1 from Zhao et al. (2015) [<a href='https://conor-b-abraham.github.io/resources/1_FibMap/#references'>13</a>].
 </div>
 
 At this time, the calculation of pi stacking interactions depends upon residue and atom names. In the future, I would like to completely remove naming dependence from the program, but for now this is the only part of the program that still relies on it. By default, the program uses the CHARMM36 forcefield residue and atom names (Table 2). These names can be changed from the commandline or using an input file (See [Usage: calc: Parameters](#parameters)).
@@ -123,7 +123,7 @@ At this time, the calculation of pi stacking interactions depends upon residue a
 | Tryptophan | TRP | CG CD1, NE1, CE2, CD2 |
 
 <div class="caption">
-    Table 2: The default residue and atom names used to select the aromatic rings that could participate in a pi stacking interaction. *NOTE: Notice that the 5-membered ring (not the 6-membered ring) is used for Tryptophan. This follows the guidance of Zhao et al (2015) [[13]](#references).*
+    Table 2: The default residue and atom names used to select the aromatic rings that could participate in a pi stacking interaction. *NOTE: Notice that the 5-membered ring (not the 6-membered ring) is used for Tryptophan. This follows the guidance of Zhao et al (2015) [<a href='https://conor-b-abraham.github.io/resources/1_FibMap/#references'>13</a>].*
 </div>
 
 ### Probabilities
@@ -287,7 +287,7 @@ using MDAnalysis.
     </div>
 </div>
 <div class="caption">
-    Figure 7: An example fibril showing the proper order of segments in the topology. The fibril shown is an extended version of the human Serum Amyloid A (hSAA) fibril resolved by Cryo-EM ([PDB 6MST](https://www.rcsb.org/structure/6MST)) by Liberta et al. [12].
+    Figure 7: An example fibril showing the proper order of segments in the topology. The fibril shown is an extended version of the human Serum Amyloid A (hSAA) fibril resolved by Cryo-EM (<a href='https://doi.org/10.2210/pdb6MST/pdb'>PDB 6MST</a>) by Liberta et al. [<a href='https://conor-b-abraham.github.io/resources/1_FibMap/#references'>12</a>].
 </div>
 
 The proper order should be layer by layer and protofilament by protofilament. For example, consider the fibril shown in Figure 7 with 12 layers and 2 protofilaments. Each segment is named with P[Protofilament #][Layer #] (e.g. the segment in layer 1 and protofilament 1 is P11, the segment in layer 1 and protofilament 2 is P21), the segment in layer 2 and protofilament 1 is P12, etc.).
@@ -552,7 +552,7 @@ A hydrophobic zipper between residues 1 to 32 on protofilament 1 and residues 1 
     </div>
 </div>
 <div class="caption">
-    Figure 9: Example of a FibMap showing a hydrophobic zipper. This image was generated using FibMap and [PDB 6MST](https://www.rcsb.org/structure/6MST) [[12]](#references).
+    Figure 9: Example of a FibMap showing a hydrophobic zipper. This image was generated using FibMap and (<a href='https://doi.org/10.2210/pdb6MST/pdb'>PDB 6MST</a>) [<a href='https://conor-b-abraham.github.io/resources/1_FibMap/#references'>12</a>].
 </div>
 
 To add this region to the visualization add the following line to your input file: 
@@ -570,7 +570,7 @@ Two water channels encompassed by residues 22-50 of protofilament 1 and 22-50 of
     </div>
 </div>
 <div class="caption">
-    Figure 10: Example of a FibMap showing two water channels. *NOTE: This image was generated using FibMap and [PDB 6MST](https://www.rcsb.org/structure/6MST) [[12]](#references)*
+    Figure 10: Example of a FibMap showing two water channels. *NOTE: This image was generated using FibMap and (<a href='https://doi.org/10.2210/pdb6MST/pdb'>PDB 6MST</a>) [<a href='https://conor-b-abraham.github.io/resources/1_FibMap/#references'>12</a>]*
 </div>
 
 To add these region to the visualization you can define them within your map input file by adding the following lines: 
@@ -881,7 +881,7 @@ Before starting download all of the necessary files for the following two tutori
 
 <div class="row">
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/fibmap/Tutorial1_FibMap.png" title="Result Tutorial 1" class="img-fluid rounded z-depth-1" zoomable=true %}
+    {% include figure.liquid loading="eager" path="assets/img/fibmap/Tutorial1_FibMap.png" title="Result Tutorial 1" class="img-fluid rounded z-depth-1" %}
 </div>
 </div>
 <div class="caption">
@@ -910,7 +910,7 @@ A sample trajectory with its topology file is provided in the tutorials/tutorial
 
 <div class="row">
 <div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/fibmap/Tutorial2_FibMap.png" title="Result Tutorial 2" class="img-fluid rounded z-depth-1" zoomable=true %}
+    {% include figure.liquid loading="eager" path="assets/img/fibmap/Tutorial2_FibMap.png" title="Result Tutorial 2" class="img-fluid rounded z-depth-1" %}
 </div>
 </div>
 <div class="caption">
@@ -925,7 +925,7 @@ A sample trajectory with its topology file is provided in the tutorials/tutorial
 
 <div class="row">
 <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-    {% include figure.liquid loading="eager" path="assets/img/fibmap/Tutorial2_Traj.png" title="Trajectory Result Tutorial 2" class="img-fluid rounded z-depth-1" zoomable=true width="75%" %}
+    {% include figure.liquid loading="eager" path="assets/img/fibmap/Tutorial2_Traj.png" title="Trajectory Result Tutorial 2" class="img-fluid rounded z-depth-1" width="75%" %}
 </div>
 </div>
 <div class="caption">
