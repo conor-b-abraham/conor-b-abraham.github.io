@@ -40,7 +40,7 @@ FibMap.py was created to aid the analysis of the evergrowing collection of amylo
     </div>
 </div>
 <div class="caption">
-    Figure 1: FibMap creates an informative figure displaying the residues and key contacts within an amyloid fibril. The image on the left was created using Visual Molecular Dynamics (VMD) [[11]](#references). The shown fibril is the human Serum Amyloid A fibril (<a href='https://doi.org/10.2210/pdb6MST/pdb'>PDB 6MST</a>)[<a href='https://conor-b-abraham.github.io/projects/1_FibMap/#references'>12</a>].
+    Figure 1: FibMap creates an informative figure displaying the residues and key contacts within an amyloid fibril. The image on the left was created using Visual Molecular Dynamics (VMD) [[11]](#references). The shown fibril is the human Serum Amyloid A fibril (<a href='https://doi.org/10.2210/pdb6MST/pdb'>PDB 6MST</a>)[<a href='https://conor-b-abraham.github.io/resources/1_FibMap/#references'>12</a>].
 </div>
 
 ## Methodology
@@ -51,7 +51,7 @@ FibMap uses MDAnalysis's Hydrogen Bond Analysis tool for calculating hydrogen bo
 Potential hydrogen bond acceptors and hydrogens are guessed using the atom charge information. An atom whose charge is less than -0.5e is considered a potential acceptor. Atoms with a mass greater than 0.9u and less than 1.1u and a charge greater than 0.3e are considered potential hydrogen bonded hydrogens. Potential hydrogen bond donors are inferred from the list of potential hydrogen bonded hydrogens.
 
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
         {% include figure.liquid loading="eager" path="assets/img/fibmap/HBonds.png" title="Hydrogen Bond Calculation" class="img-fluid rounded z-depth-1" width="50%" %}
     </div>
 </div>
@@ -91,7 +91,7 @@ If done automatically, charged residues are identified using the atom charges in
 ### Pi Stacking Interactions
 
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
         {% include figure.liquid loading="eager" path="assets/img/fibmap/PiStacking.png" title="Pi Stacking Determination" class="img-fluid rounded z-depth-1" zoomable=true width="30%" %}
     </div>
 </div>
@@ -135,7 +135,7 @@ The goal with calculating the probabilities (or average number of) a given type 
 For interlayer interactions, this means that the probabilties need to be adjusted to reflect the fact that in a finite fibril model (such as the Cryo-EM structures deposited on the PDB databank), the terminal layers of the fibril are unable to form the interaction. We also have to consider that in our FibMap representation, sidechains are represented by a single point, so for some sites and types of interactions multiple interactions may occur (e.g. Arginine sidechains can form multiple hydrogen bonds). Finally, because the layers of some fibrils are 'staggered', interlayer interactions involving a given layer could occur between that layer and multiple other layers. For example, consider two sites, A and B, on a 4 layer fibril (Figure 6).
 
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
         {% include figure.liquid loading="eager" path="assets/img/fibmap/ProbsSingle.png" title="Interlayer Figure" class="img-fluid rounded z-depth-1" width="30%" %}
     </div>
 </div>
@@ -852,7 +852,7 @@ Before starting download all of the necessary files for the following two tutori
    - A figure will open showing the positions of each segment from three perspectives. Use this figure to determine the proper order of the segments. Write these down, or open the figure manually: it was saved to prepared_segment_locs.png.
     
 <div class="row">
-<div class="col-sm mt-3 mt-md-0">
+<div class="col-sm mt-3 mt-md-0" style="text-align: center;">
     {% include figure.liquid loading="eager" path="assets/img/fibmap/prepared_segment_locs.png" title="Segment Locations Tutorial 1" class="img-fluid rounded z-depth-1" width="75%" %}
 </div>
 </div>
@@ -923,7 +923,7 @@ A sample trajectory with its topology file is provided in the tutorials/tutorial
     **The result should look like this:**
 
 <div class="row">
-<div class="col-sm mt-3 mt-md-0">
+<div class="col-sm mt-3 mt-md-0" style="text-align: center;">
     {% include figure.liquid loading="eager" path="assets/img/fibmap/Tutorial2_Traj.png" title="Trajectory Result Tutorial 2" class="img-fluid rounded z-depth-1" zoomable=true width="75%" %}
 </div>
 </div>
