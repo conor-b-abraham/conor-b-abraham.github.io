@@ -933,19 +933,19 @@ A sample trajectory with its topology file is provided in the tutorials/tutorial
 </div>
 
 ## References 
-1. Fowler, D. M.; Koulov, A. V.; Alory-Jost, C.; Marks, M. S.; Balch, W. E.; Kelly, J. W. *PLoS biology* **2006**, *4*, e6. https://doi.org/10.1371/journal.pbio.0040006
-2. Sawaya, M. R.; Hughes, M. P.; Rodriguez, J. A.; Riek, R.; Eisenberg, D. S. *Cell* **2021**, *184*, 4857–4873. https://doi.org/10.1016/j.cell.2021.08.013
-3. Benson, M. D.; Buxbaum, J. N.; Eisenberg, D. S.; Merlini, G.; Saraiva, M. J.; Sekijima, Y.; Sipe, J. D.; Westermark, P. *Amyloid* **2018**, *25*, 215–219. https://doi.org/10.1080/13506129.2018.1549825
-4. Fitzpatrick, A. W.; Falcon, B.; He, S.; Murzin, A. G.; Murshudov, G.; Garringer, H. J.; Crowther, R. A.; Ghetti, B.; Goedert, M.; Scheres, S. H. *Nature* **2017**, *547*, 185–190. https://doi.org/10.1038/nature23002
-5. Cao, Q.; Boyer, D. R.; Sawaya, M. R.; Ge, P.; Eisenberg, D. S. *Nature structural & molecular biology* **2019**, *26*, 619–627. https://doi.org/10.1038/s41594-019-0248-4
-6.  Li, B.; Ge, P.; Murray, K. A.; Sheth, P.; Zhang, M.; Nair, G.; Sawaya, M. R.; Shin, W. S.; Boyer, D. R.; Ye, S., et al. *Nature communications* **2018**, *9*, 1–10. https://doi.org/10.1038/s41467-018-05971-2
-7.  Zhang, W.; Falcon, B.; Murzin, A. G.; Fan, J.; Crowther, R. A.; Goedert, M.; Scheres, S. H. Elife 2019, 8, e43584. https://doi.org/10.7554/eLife.43584
-8.  Guerrero-Ferreira, R.; Taylor, N. M.; Arteni, A.-A.; Kumari, P.; Mona, D.; Ringler, P.; Britschgi, M.; Lauer, M. E.; Makky, A.; Verasdonck, J., et al. *Elife* **2019**, *8*, e48907. https://doi.org/10.7554/eLife.48907
-9.  Boyer, D. R.; Li, B.; Sun, C.; Fan, W.; Sawaya, M. R.; Jiang, L.; Eisenberg, D. S. *Nature structural & molecular biology* **2019**, *26*, 1044–1052. https://doi.org/10.1038/s41594-019-0322-y
-10.  Bansal, A.; Schmidt, M.; Rennegarbe, M.; Haupt, C.; Liberta, F.; Stecher, S.; Puscalau-Girtu, I.; Biedermann, A.; F ̈andrich, M. *Nature communications* **2021**, *12*, 1–9. https://doi.org/10.1038/s41467-021-21129-z
-11.  Humphrey, W.; Dalke, A.; Schulten, K. VMD: visual molecular dynamics. *Journal of molecular graphics* **1996**, *14*, 33–38. https://doi.org/10.1016/0263-7855(96)00018-5
-12.  Liberta, F.; Loerch, S.; Rennegarbe, M.; Schierhorn, A.; Westermark, P.; Westermark, G. T.; Hazenberg, B. P.; Grigorieff, N.; F ̈andrich, M.; Schmidt, M. *Nature communications* **2019**, *10*, 1–10. https://doi.org/10.1038/s41467-019-09033-z
-13. Zhao, Y., Li, J., Gu, H. et al. *Interdiscip Sci Comput Life Sci* **2015**, *7*, 211–220. https://doi.org/10.1007/s12539-015-0263-z
+1. Fowler, D. M.; Koulov, A. V.; Alory-Jost, C.; Marks, M. S.; Balch, W. E.; Kelly, J. W. *PLoS biology* **2006**, *4*, e6. [https://doi.org/10.1371/journal.pbio.0040006](https://doi.org/10.1371/journal.pbio.0040006)
+2. Sawaya, M. R.; Hughes, M. P.; Rodriguez, J. A.; Riek, R.; Eisenberg, D. S. *Cell* **2021**, *184*, 4857–4873. [https://doi.org/10.1016/j.cell.2021.08.013](https://doi.org/10.1016/j.cell.2021.08.013)
+3. Benson, M. D.; Buxbaum, J. N.; Eisenberg, D. S.; Merlini, G.; Saraiva, M. J.; Sekijima, Y.; Sipe, J. D.; Westermark, P. *Amyloid* **2018**, *25*, 215–219. [https://doi.org/10.1080/13506129.2018.1549825](https://doi.org/10.1080/13506129.2018.1549825)
+4. Fitzpatrick, A. W.; Falcon, B.; He, S.; Murzin, A. G.; Murshudov, G.; Garringer, H. J.; Crowther, R. A.; Ghetti, B.; Goedert, M.; Scheres, S. H. *Nature* **2017**, *547*, 185–190. [https://doi.org/10.1038/nature23002](https://doi.org/10.1038/nature23002)
+5. Cao, Q.; Boyer, D. R.; Sawaya, M. R.; Ge, P.; Eisenberg, D. S. *Nature structural & molecular biology* **2019**, *26*, 619–627. [https://doi.org/10.1038/s41594-019-0248-4](https://doi.org/10.1038/s41594-019-0248-4)
+6.  Li, B.; Ge, P.; Murray, K. A.; Sheth, P.; Zhang, M.; Nair, G.; Sawaya, M. R.; Shin, W. S.; Boyer, D. R.; Ye, S., et al. *Nature communications* **2018**, *9*, 1–10. [https://doi.org/10.1038/s41467-018-05971-2](https://doi.org/10.1038/s41467-018-05971-2)
+7.  Zhang, W.; Falcon, B.; Murzin, A. G.; Fan, J.; Crowther, R. A.; Goedert, M.; Scheres, S. H. Elife 2019, 8, e43584. [https://doi.org/10.7554/eLife.43584](https://doi.org/10.7554/eLife.43584)
+8.  Guerrero-Ferreira, R.; Taylor, N. M.; Arteni, A.-A.; Kumari, P.; Mona, D.; Ringler, P.; Britschgi, M.; Lauer, M. E.; Makky, A.; Verasdonck, J., et al. *Elife* **2019**, *8*, e48907. [https://doi.org/10.7554/eLife.48907](https://doi.org/10.7554/eLife.48907)
+9.  Boyer, D. R.; Li, B.; Sun, C.; Fan, W.; Sawaya, M. R.; Jiang, L.; Eisenberg, D. S. *Nature structural & molecular biology* **2019**, *26*, 1044–1052. [https://doi.org/10.1038/s41594-019-0322-y](https://doi.org/10.1038/s41594-019-0322-y)
+10.  Bansal, A.; Schmidt, M.; Rennegarbe, M.; Haupt, C.; Liberta, F.; Stecher, S.; Puscalau-Girtu, I.; Biedermann, A.; F ̈andrich, M. *Nature communications* **2021**, *12*, 1–9. [https://doi.org/10.1038/s41467-021-21129-z](https://doi.org/10.1038/s41467-021-21129-z)
+11.  Humphrey, W.; Dalke, A.; Schulten, K. VMD: visual molecular dynamics. *Journal of molecular graphics* **1996**, *14*, 33–38. [https://doi.org/10.1016/0263-7855(96)00018-5](https://doi.org/10.1016/0263-7855(96)00018-5)
+12.  Liberta, F.; Loerch, S.; Rennegarbe, M.; Schierhorn, A.; Westermark, P.; Westermark, G. T.; Hazenberg, B. P.; Grigorieff, N.; F ̈andrich, M.; Schmidt, M. *Nature communications* **2019**, *10*, 1–10. [https://doi.org/10.1038/s41467-019-09033-z](https://doi.org/10.1038/s41467-019-09033-z)
+13. Zhao, Y., Li, J., Gu, H. et al. *Interdiscip Sci Comput Life Sci* **2015**, *7*, 211–220. [https://doi.org/10.1007/s12539-015-0263-z](https://doi.org/10.1007/s12539-015-0263-z)
 
 ## License 
 
