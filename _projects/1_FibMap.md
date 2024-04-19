@@ -53,7 +53,7 @@ Potential hydrogen bond acceptors and hydrogens are guessed using the atom charg
     </div>
 </div>
 <div class="caption">
-    Figure 2: Schematic showing $$\theta_{D-H-A}$$ and $$D_{D-A}$$ of a hydrogen bond. For a given set of a potential hydrogen bond donor and hydrogen and a potential hydrogen bond acceptor, $$\theta_{D-H-A}$$ and $$D_{D-A}$$ must be below their cutoff.
+    Figure 2: Schematic showing angle and distance of a hydrogen bond. For a given set of a potential hydrogen bond donor and hydrogen and a potential hydrogen bond acceptor, the angle and distance must be below their cutoff.
 </div>
 
 Hydrogen bonds are identified from sets of potential hydrogen bonds donors, acceptors, and hydrogens using a donor-acceptor distance cutoff ($$D_{D-A}$$, Default: 3.5Å) and a donor-hydrogen-acceptor angle cutoff ($$\theta_{D-H-A}$$, Default: 150°) as shown in Figure 2. These cutoffs can be changed from the commandline or with an input file if desired (See [Usage: calc: Parameters](#parameters)).
@@ -64,14 +64,15 @@ FibMap calculates salt bridges by identifying charged residues and calculating t
 Determination of charged residues capable of forming salt bridges can be done manually or automatically. The salt bridge group determination method and its associated parameters can be set from the commandline or with an input file (See [Usage: calc: Parameters](#parameters)). If done manually, the user can select the residue names and atom names they want to include in the calculation. The default names for manual determination are based on the CHARMM36 force field atom and residue names and are set to include aspartic acid and glutamic acid as anions and lysine, arginine, and basic histidine as cations (Table 1).
 
 | Type | Residue | Residue Name(s) | Atom Names |
-|---|---|---|---|
+|:---:|:---:|:---:|:---:|
 | Anion | Aspartic Acid | ASP | OD1, OD2 |
 | Anion | Glutamic Acid | GLU | OE1, OE2 |
 | Cation | Lysine | LYS | NZ |
 | Cation | Arginine | ARG | NH1, NH2, NE |
 | Cation | Basic Histidine | HSP | ND1, NE2 |
-
-> Table 1: Default residue and atom names used for the manual salt bridge group selector mode.
+<div class="caption">
+    Table 1: Default residue and atom names used for the manual salt bridge group selector mode.
+</div>
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -79,7 +80,7 @@ Determination of charged residues capable of forming salt bridges can be done ma
     </div>
 </div>
 <div class="caption">
-    Figure 3: Schematic showing the automatic salt bridge group determination method and distances. For lysine (left), the overall charge of the NH<sub>3</sub> group is 0.69e. Because this is the largest charge on the lysine sidechain, the NZ atom will be used as a reference point. For aspartic acid (right) the OD1 and OD2 atoms each carry a -0.76e charge. Assuming this is below the anion charge cutoff, both atoms will be used as reference points. As aspartic acid has 2 reference points and lysine has 1 reference point, two distances are computed, $$D_{NZ-OD1}$$ and $$D_{NZ-OD2}$$. At least one of these distances must be below the salt bridge distance cutoff for it to count as a salt bridge.
+    Figure 3: Schematic showing the automatic salt bridge group determination method and distances. For lysine (left), the overall charge of the NH<sub>3</sub> group is 0.69e. Because this is the largest charge on the lysine sidechain, the NZ atom will be used as a reference point. For aspartic acid (right) the OD1 and OD2 atoms each carry a -0.76e charge. Assuming this is below the anion charge cutoff, both atoms will be used as reference points. As aspartic acid has 2 reference points and lysine has 1 reference point, two distances are computed. At least one of these distances must be below the salt bridge distance cutoff for it to count as a salt bridge.
 </div>
 
 If done automatically, charged residues are identified using the atom charges in the topology. Then, for each heavy atom in a charged residue, the total charge of that atom and any connected hydrogens is computed (Figure 3). For anions, if the total charge is less than the charge cutoff (Default: -0.5e), the heavy atom is added to the charged region for that atom. For cations, if the total charge is greater than the charge cutoff (Default: 0.5e), the heavy atom is added to the charged region for that atom. If no heavy atom meets the cutoff requirement for an acidic or basic residue, the heavy atom closest to the cutoff will be used and a warning will be thrown.
@@ -111,19 +112,20 @@ Any pair with $$\mathrm{R_{cen}} \leq 7.2$$ Å could be a pi stacking interactio
 At this time, the calculation of pi stacking interactions depends upon residue and atom names. In the future, I would like to completely remove naming dependence from the program, but for now this is the only part of the program that still relies on it. By default, the program uses the CHARMM36 forcefield residue and atom names (Table 2). These names can be changed from the commandline or using an input file (See [Usage: calc: Parameters](#parameters)).
 
 | Residue | Residue Name(s) | Atom Names |
-|---|---|---|
+|:---|:---:|---:|
 | Phenylalanine | PHE | CG, CD2, CE2, CZ, CE1, CD1 |
 | Tyrosine | TYR | CG, CD2, CE2, CZ, CE1, CD1 |
 | Histidine | HSD, HSE, HSP | CG, CD2, NE2, CE1, ND1 |
 | Tryptophan | TRP | CG CD1, NE1, CE2, CD2 |
-
-> Table 2: The default residue and atom names used to select the aromatic rings that could participate in a pi stacking interaction. *NOTE: Notice that the 5-membered ring (not the 6-membered ring) is used for Tryptophan. This follows the guidance of Zhao et al (2015) [[13]](#references).*
+<div class="caption">
+    Table 2: The default residue and atom names used to select the aromatic rings that could participate in a pi stacking interaction. *NOTE: Notice that the 5-membered ring (not the 6-membered ring) is used for Tryptophan. This follows the guidance of Zhao et al (2015) [[13]](#references).*
+</div>
 
 ### Probabilities
 
 The goal with calculating the probabilities (or average number of) a given type of interaction within the fibril is to have the probability reflect that of an infinite fibril. 
 
-> *NOTE: For pi stacking interactions, the processed results file will contain values for* $${P(Sandwich)}$$*,* $$P(T-Shaped)$$*,* $$P(Intermediate)$$*, and* $$P(Parallel \text{ } Displaced)$$*, as well as,* $$P(Total)$$*.* $$P(Sandwich)$$*,* $$P(T-Shaped)$$*,* $$P(Intermediate)$$*, and* $$P(Parallel \text{ } Displaced)$$ *are computed after* $$P(Total)$$ *(i.e. they tell you the probability that the pi stacking interaction is of that kind IF it exists). The probability cutoff for displaying a pi stacking interaction on the FibMap is only applied to* $$P(Total)$$*.*
+*NOTE: For pi stacking interactions, the processed results file will contain values for* $${P(Sandwich)}$$*,* $$P(T-Shaped)$$*,* $$P(Intermediate)$$*, and* $$P(Parallel \text{ } Displaced)$$*, as well as,* $$P(Total)$$*.* $$P(Sandwich)$$*,* $$P(T-Shaped)$$*,* $$P(Intermediate)$$*, and* $$P(Parallel \text{ } Displaced)$$ *are computed after* $$P(Total)$$ *(i.e. they tell you the probability that the pi stacking interaction is of that kind IF it exists). The probability cutoff for displaying a pi stacking interaction on the FibMap is only applied to* $$P(Total)$$*.*
 
 #### Interlayer Interactions
 For interlayer interactions, this means that the probabilties need to be adjusted to reflect the fact that in a finite fibril model (such as the Cryo-EM structures deposited on the PDB databank), the terminal layers of the fibril are unable to form the interaction. We also have to consider that in our FibMap representation, sidechains are represented by a single point, so for some sites and types of interactions multiple interactions may occur (e.g. Arginine sidechains can form multiple hydrogen bonds). Finally, because the layers of some fibrils are 'staggered', interlayer interactions involving a given layer could occur between that layer and multiple other layers. For example, consider two sites, A and B, on a 4 layer fibril (Figure 6).
@@ -134,7 +136,7 @@ For interlayer interactions, this means that the probabilties need to be adjuste
     </div>
 </div>
 <div class="caption">
-    Figure 6: Two interaction sites on a four layer fibril forming $$\Delta \ell=1$$ and $\Delta \ell=2$ interactions.
+    Figure 6: Two interaction sites on a four layer fibril forming two different interlayer interactions.
 </div>
 
 On the FibMap, we will be representing two different interactions with the same representation, an $$A_{i}\text{ }to\text{ }B_{i+1}$$ interaction and an $$A_{i}\text{ }to\text{ }B_{i+2}$$ interaction. When calculating this probability we have to account for the fact that a maximum of 3 $$A_{i}\text{ }to\text{ }B_{i+1}$$ interactions can occur and a maximum of 2 $$A_{i}\text{ }to\text{ }B_{i+2}$$ interactions can occur. We also have to account for the fact that in the case that a single interaction does not occur, it does not necessarily change the overall probability of an $$A_{i}\text{ }to\text{ }B_{j \neq i}$$ interaction (e.g. if $$A_{4}\text{ }to\text{ }B_{3}$$ does not occur, but the probability of an $$A_{i}\text{ }to\text{ }B_{i+2}$$ is 1, then the overall probability of an $$A_{i}\text{ }to\text{ }B_{j \neq i}$$ interaction is still 1). So, the overall probability of an $$A_{i}\text{ }to\text{ }B_{j \neq i}$$ interaction at a given timestep, $$f$$, is given by:
@@ -179,17 +181,17 @@ Then, $$P(A_i \text{ } to \text{ } B_i)$$ and $$\langle N(A_i \text{ } to \text{
 
 To determine the positions of the residues on the FibMap the positions of a central fibril layer are rotated such that the vector defined by its longest interatomic distance is aligned with the X-Axis. The purpose of this is twofold: (1) It will orient the layer so that it is closely aligned to the XY-plane, and (2) It will orient the positions so that the FibMap is wider than it is tall (i.e. landscape orientation). All layers of the fibril at all timesteps are then RMSD-fit to this layer using the Kabsch algorithm. The mean XY-position of each alpha-carbon, sidechain center-of-mass, or terminal atom center-of-mass is then taken for each position. 
 
-> *NOTE: In the future, I may play around with various projections, but for now I figure that it's best to keep it simple.*
->
-> *NOTE: In the future, I will add an option for a portrait orientation.*
+*NOTE: In the future, I may play around with various projections, but for now I figure that it's best to keep it simple.*
+
+*NOTE: In the future, I will add an option for a portrait orientation.*
 
 ### Trajectory Analysis
 
-For the trajectory analysis (completed by the `FibMap.py traj` subcommand), the number of interactions of a given type per layer is computed for each frame. For a finite fibril model with $n_{layers}$, an interlayer interaction with a layer separation of $\Delta \ell$ can only occur $n_{layers} - \Delta \ell$ times, so for a given frame the number of interactions per layer for a given type of interaction is computed as:
+For the trajectory analysis (completed by the `FibMap.py traj` subcommand), the number of interactions of a given type per layer is computed for each frame. For a finite fibril model with $$n_{layers}$$, an interlayer interaction with a layer separation of $$\Delta \ell$$ can only occur $$n_{layers} - \Delta \ell$$ times, so for a given frame the number of interactions per layer for a given type of interaction is computed as:
 
 $$N(f) = \sum_{i} \frac{1}{n_{layers}-\Delta \ell(i)},$$
 
-where $$\Delta \ell$$ us the layer separation between the two sites (i.e. for interaction $$i$$ between site $$A$$ in layer $$\ell_A$$ and site $$B$$ in layer $$\ell_B$$, $$\Delta \ell(i))=|\ell_A - \ell_B |$$.
+where $$\Delta \ell$$ us the layer separation between the two sites (i.e. for interaction $$i$$ between site $$A$$ in layer $$\ell_A$$ and site $$B$$ in layer $$\ell_B$$, $$\Delta \ell(i) = |\ell_A - \ell_B |$$.
 
 ## Installation
 
@@ -229,7 +231,7 @@ The `calc` subcommand is used to compute the intermolecular forces within the fi
 ##### Input
 
 | Argument | Default | Description |
-|--- |--- |--- |
+|:---|:---:|---:|
 | `-i/--input_file filename` | None | Input file containing parameters for calculation job. All commandline arguments can be specified in this file for user convenience. Any parameters given at the commandline will override their counterpart in this file. See **[Additional Help:](#additional-help) Input File Help** for more information. |
 | `-c/--checkpoint_file filename ...` | None | Checkpoint file(s) to resume from last saved checkpoint(s). These checkpoint file(s) includes the original parameters for the run. Any commandline arguments that will effect the results of the run (e.g. trajectory_file, topology_file, n_protofilaments, omit_layers, etc.) will be ignored if a checkpoint file is provided. Cannot be set if `-i/--input_file` is. |
 | `-f/--topology_file filename` | None | Topology file containing atom charges, bonds, and Segment IDs (e.g TPR). If no trajectory file is provided, the topology file must also contain coordinate information. The order of the segments is very important. See [MDAnalysis User Guide](https://userguide.mdanalysis.org/stable/formats/index.html) for valid file formats. *IMPORTANT: A specific segment ordering is required. See* **[Additional Help:](#additional-help) Topology File Setup** *below for details.* |
@@ -238,7 +240,7 @@ The `calc` subcommand is used to compute the intermolecular forces within the fi
 ##### Output
 
 | Argument | Default | Description |
-|--- |--- |--- |
+|:---|:---:|---:|
 | `-o/--output_directory path` | Working Dir. | Directory to write files to. This directory must already exist.|
 | `-v/--verbose` | True | Pass calculated interactions to standard output. |
 | `--[no]saveraw` | saveraw | If saveraw, the unprocessed results will be saved. NOTE: The trajectory analysis subcommand requires these results.| 
@@ -248,7 +250,7 @@ The `calc` subcommand is used to compute the intermolecular forces within the fi
 ##### Options
 
 | Argument | Default | Description |
-|--- |--- |--- |
+|:---|:---:|---:|
 | `--calctype {ALL, HB, SB, PI, HB+SB, HB+PI, SB+PI}` | ALL | What type of interaction to compute. Options are ALL, HB, SB, PI, HB+SB, HB+PI, and SB+PI. ALL computes all, options with HB computes hydrogen bonds, options with SB computes salt bridges, and options with PI computes pi stacking interactions. |
 | `-n/--n_protofilaments int` (int $$\gt$$ -2)| Required | The number of protofilaments in the fibril (i.e. how many segments are in each layer of the fibril). |
 | `--omit_layers int` (int $$\geq$$ 0) | 0 | How many layers on each end of the fibril to omit from analysis. This is especially important for analysis of simulation trajectories of a finite fibril model as delamination at the ends of the fibril will bias the results.|
@@ -364,21 +366,21 @@ calculations can be run using `--calctype` and `--nprocs`.
 
 After the intermolecular forces have been computed with the `calc` subcommand, the `map` subcommand can be used to create the fibril map. Run this subcommand with `python FibMap.py map ...`. For additional help with this subcommand run `python FibMap.py map -h` or `python FibMap.py map --help`. 
 
-> *NOTE: This subcommand can only be run after the `calc` subcommand has completed.*
+*NOTE: This subcommand can only be run after the `calc` subcommand has completed.*
 
 #### Parameters
 
 ##### Input
 
 | Argument | Default | Description |
-|--- |--- |--- |
+|:---|:---:|---:|
 | `-c/--checkpoint_file filename ...` | None | Checkpoint file(s) from finished calc job or previous map job. |
 | `-i/--input_file filename` | None | Input file containing parameters for mapping job. All required commandline arguments and additional formatting parameters can alternatively be specified in this file. Arguments given at the commandline will override any of their counterparts given in this file. See **[Additional Help:](#additional-help-1) Input File Help & Additional Parameters** below for a list of parameters that can be set in this file.|
 
 ##### Output
 
 | Argument | Default | Description |
-|--- |--- |--- |
+|:---|:---:|---:|
 | `-o/--figure_file filename` | [output_directory]/fibmap.png | Path to and name of output image file. Can be any filetype that can be written by matplotlib. If using default, [output_directory] is the output directory specified for the previous calc run. |
 | `--[no]log` | nolog | If log, save standard output to a log file. This option is better than manually passing stdout to a file at the commandline, as it will not write progress bars to the file. |
 | `--[no]backup` | backup | If backup, past logfiles and past figure file images will be backed up. |
@@ -387,7 +389,7 @@ After the intermolecular forces have been computed with the `calc` subcommand, t
 ##### Options
 
 | Argument | Default | Description |
-|--- |--- |--- |
+|:---|:---:|---:|
 | `--p_cutoff float` (0 $$\leq$$ float $$\leq$$ 1) | 0.5 | Probability cutoff for hydrogen bonds, salt bridges, and pi stacking interactions. If the probability of a given interaction is less than this value then it will not be displayed on the map. (TIP: To hide all interactions, set this value to 1 and do not set `--hbond_n_cutoff`, `--hbond_p_cutoff`, `--saltbridge_p_cutoff`, or `--pistacking_p_cutoff`). |
 | `--hbond_p_cutoff float` (0 $$\leq$$ float $$\leq$$ 1) | None | Individually set the probability cutoff for hydrogen bonds. If not set, p_cutoff will be used. (TIP: To hide all hydrogen bonds, set this value to 1 and do not set `--hbond_n_cutoff`). |
 | `--hbond_n_cutoff float` (float $$\geq$$ 0) | None | If set, the average number of hydrogen bonds per frame formed between two groups will be used to determine whether or not a hydrogen bond is shown on the figure instead of a probability cutoff. If the average number of hydrogen bonds per frame is less than this cutoff then the hydrogen bond will not be displayed on the map. |
@@ -404,14 +406,16 @@ After the intermolecular forces have been computed with the `calc` subcommand, t
 The above parameters (and the additional parameters below) can be provided in an input file (specified with `-i/--input_file`) for the user's convenience. Only one parameter is allowed per line, separate the parameters name and the chosen value(s) with an equal-to sign (=). For flags (i.e. verbose, [no]log, [no]backup), set the value to either 'True' or 'False'. Lines may be commented out with a pound/hash/number sign (#). If a parameter can take multiple values (e.g. trajectory_file), you can either use separate entries for each value (e.g. put `checkpoint_file = filename1`, `checkpoint_file = filename2`, etc. on separate lines) or you can separate the filenames with a space in a single entry (e.g. `checkpoint_file = filename1 filename2 ...`). The following additional parameters can also be defined in the input file:
 
 **Hydrophobic Zippers and Water Channels**
+
 | Argument | Default | Description |
-|--- |--- |--- |
+|:---|:---:|---:|
 | `water_region = WaterRegion` | None | Define the location of a water channel. See **[Additional Help:](#additional-help-1) Specifying Shaded Regions** below for details. Multiple can be defined with separate entries. |
 | `zipper_region = ZipperRegion` | None | Define the location of a hydrophobic zipper. See **[Additional Help:](#additional-help-1) Specifying Shaded Regions** below for details. Multiple can be defined with separate entries. |
                         
-Figure Settings
+*Figure Settings*
+
 | Argument | Default | Description |
-|--- |--- |--- |
+|:---|:---:|---:|
 | `figure_width = float` (float $$\gt$$ 0) | 6.5 | Figure width in inches. |
 | `figure_height = float` (float $$\gt$$ 0) | 4.5 | Figure height in inches. |
 | `figure_dpi = int` | 300 | The figure resolution in dots per inch (dpi). |
@@ -420,10 +424,10 @@ Figure Settings
                         
 **Colors**
 
-> *NOTE: All colors must be valid matplotlib colors. See matplotlib [documentation](https://matplotlib.org/stable/tutorials/colors/colors.html) for options. Some residue-specific colors (if indicated) can also be set to the color of the residues' chains with option "chain".*
+*NOTE: All colors must be valid matplotlib colors. See matplotlib [documentation](https://matplotlib.org/stable/tutorials/colors/colors.html) for options. Some residue-specific colors (if indicated) can also be set to the color of the residues' chains with option "chain".*
 
 | Argument | Default | Description |
-|--- |--- |--- |
+|:---|:---:|---:|
 | `acidic_color = color` | steelblue | Color of acidic residues. |
 | `acidic_label_color = color or "chain"` | white | Color of acidic residue labels. If "chain" residue labels will be given the same color as their chain backbone color. |
 | `basic_color = color` | firebrick | Color of acidic residues. |
@@ -445,7 +449,7 @@ Figure Settings
 | `zipper_color = color` | tan | Color of hydrophobic zipper regions. |
 | `zipper_opacity = float` (0 $$\leq$$ float $$\leq$$ 1) | 0.5 | Opacity of hydrophobic zipper regions. |
 
-> *NOTE: See Figure 8 below for color guide.*
+*NOTE: See Figure 8 below for color guide.*
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -586,7 +590,7 @@ n_protofilaments = # The number of protofilaments
 omit_layers = # The number of layers to omit on each end of the fibril
 ```
 
-> *NOTE: All of these parameters are described in [calc: Parameters](#parameters)*
+*NOTE: All of these parameters are described in [calc: Parameters](#parameters)*
 
 Alternatively, you could perform the calculation step on a single frame PDB of your fibril (will only take a second), and then run `map` with `--p_cutoff 1.0`.
 
@@ -596,21 +600,21 @@ Alternatively, you could perform the calculation step on a single frame PDB of y
 
 Use this subcommand to analyze the trajectory from the calc subcommand (with --saveraw) and plot the number of each type of interaction per layer versus time. For additional help use: `FibMap.py traj -h` or `FibMap.py traj --help`.
 
-> *NOTE: This subcommand can only be run after the `calc` subcommand with --saveraw has been completed.*
+*NOTE: This subcommand can only be run after the `calc` subcommand with --saveraw has been completed.*
 
 #### Parameters
 
 ##### Input
 
 | Argument | Default | Description |
-|--- |--- |--- |
+|:---|:---:|---:|
 | `-c/--checkpoint_file filename ...` | None | Checkpoint file(s) to finished calc job or previous traj job. |
 | `-i/--input_file filename` | None | Input file containing parameters for trajectory analysis job. All required commandline arguments and additional formatting parameters can alternatively be specified in this file. Arguments given at the commandline will override any of their counterparts given in this file. See **[Additional Help:](#additional-help-2) Input File Help** below for additional help. |
 
 ##### Output
 
 | Argument | Default | Description |
-|--- |--- |--- |
+|:---|:---:|---:|
 | `-o/--figure_file filename` | [output_directory]/fibmap.png | Path to and name of output image file. Can be any filetype that can be written by matplotlib. If using default, [output_directory] is the output directory specified for the previous calc/map run. |
 | `--[no]log` | nolog | If log, save standard output to a log file. This option is better than manually passing stdout to a file at the commandline, as it will not write progress bars to the file. |
 | `--[no]backup` | backup | If backup, past logfiles and past figure file images will be backed up. |
@@ -619,10 +623,10 @@ Use this subcommand to analyze the trajectory from the calc subcommand (with --s
 
 ##### Options
 
-> *NOTE: All colors must be valid matplotlib colors. See matplotlib [documentation](https://matplotlib.org/stable/tutorials/colors/colors.html) for options.*
+*NOTE: All colors must be valid matplotlib colors. See matplotlib [documentation](https://matplotlib.org/stable/tutorials/colors/colors.html) for options.*
 
 | Argument | Default | Description |
-|--- |--- |--- |
+|:---|:---:|---:|
 | `--figure_width int` (int $$\gt$$ 0) | 3.5in | Set the figure width in inches. |
 | `--figure_height int` (int $$\gt$$ 0) | 4in | Set the figure height in inches. |
 | `--figure_dpi int` (int $$\gt$$ 0) | 300dpi | Set the figure resolution in dots per inch. |
@@ -717,7 +721,7 @@ end
 #### calc Output File Descriptions
 
 | FileName | Description |
-|--- |--- |
+|:---|---:|
 | **calc_[calctype].cpt** | A checkpoint file to pick up the calculation from where it last left off. This file is always created. In order to avoid clashes with other `calc` checkpoint files, the file is named using the calctype (e.g. if `--calctype all` then the file is named calc_ALL.cpt). This file should be fed into `map` using the `--checkpoint_file` argument. This file can also be fed back into `calc` using the `--checkpoint_file` argument to pick up where it left off. If a file with this name already exists in the output directory this file will be backed up unless the `--nobackup` flag is used. |
 | **calc_[calctype].log** | A log file containing STDOUT. This file is created if the `--log` flag is used. In order to avoid clashes with other `calc` log files, the file is named using the calctype (e.g. if `--calctype all` then the file is named calc_ALL.log). If a file with this name already exists in the output directory this file will be backed up unless the `--nobackup` flag is used. |
 | **unprocessed_hydrogen_bonds.npy** | A .npy file containing a NumPy array of all hydrogen bonds calculated throughout a trajectory. This file is only written if the `--saveraw` flag is used. This is an array of floats with a row for each instance of a hydrogen bond. The columns contain the frame, donor atom index, hydrogen atom index, acceptor atom index, distance, and angle of a hydrogen bond. This is the output of the MDAnalysis hydrogen bond calculator, so for more help please see the [MDAnalysis Documentation](https://docs.mdanalysis.org/stable/documentation_pages/analysis/hydrogenbonds.html). |
@@ -727,12 +731,12 @@ end
 | **unprocessed_pistacking_interactions.npy** | A .npy file containing a NumPy array of all pi stacking interactions calculated throughout a trajectory. This file is only written if the `--saveraw` flag is used. This is an array of floats with a row for each instance of a pi stacking interaction. The columns contain the frame, layer A index (one-based), protofilament A index (one-based), residue A index (one-based), layer B index (one-based), protofilament B index (one-based), residue B index (one-based), centroid-centroid distance, $$\gamma$$ angle, $$\delta$$ angle, $$\theta$$ angle, and type (0=Sandwich, 1=parallel displaced, 2=Intermediate, 3=T-shaped). |
 | **processed_pistacking_interactions.npy** | A .npy file containing a NumPy array of each type of pi stacking interaction and their probabilities. This is an array of floats with a row for each type of pi stacking interaction. The columns contain Protofilament A index (one-based), Residue A index (one-based), Protofilament B index (one-based), Residue B index (one-based), Intralayer $$P(\mathrm{Total})$$, Intralayer $$P(\mathrm{T-Shaped})$$, Intralayer $$P(\mathrm{Intermediate})$$, Intralayer $$P(\mathrm{Sandwich})$$, Intralayer $$P(\mathrm{Parallel \text{ } Displaced})$$, Interlayer $$P(\mathrm{Total})$$, Interlayer $$P(\mathrm{T-Shaped})$$, Interlayer $$P(\mathrm{Intermediate})$$, Interlayer $$P(\mathrm{Sandwich})$$, Interlayer $$P(\mathrm{Parallel \text{ } Displaced})$$. |
 
-> *NOTE: The NumPy arrays within .npy files can be opened with:* `array = numpy.load(FileName)`
+*NOTE: The NumPy arrays within .npy files can be opened with:* `array = numpy.load(FileName)`
 
 #### map Output File Descriptions
 
 | File Name | Description |
-|--- |--- |
+|:---|---:|
 | **map.cpt** | A checkpoint file to pick up the calculation from where it last left off. This file is always created. This file can be fed into `map` using the `--checkpoint_file` argument to skip the residue positions calculation. If a file with this name already exists in the output directory this file will be backed up unless the `--nobackup` flag is used. |
 | **map.log** | A log file containing STDOUT. This file is created if the `--log` flag is used. If a file with this name already exists in the output directory this file will be backed up unless the `--nobackup` flag is used. |
 | **map_positions.npz** | A file containing NumPy arrays with the residue position information so that the figure can be quickly regenerated without performing the position calculation again. This file is meant for internal use only, but further details are provided below (See **About map_positions.npz**). |
@@ -773,7 +777,7 @@ file.close() # Need to close the file
 #### traj Output File Descriptions
 
 | File Name | Description |
-|--- |--- |
+|:---|---:|
 | **traj.log** | A log file containing STDOUT. This file is created if the `--log` flag is used. If a file with this name already exists in the output directory this file will be backed up unless the `--nobackup` flag is used. |
 | **traj.cpt** | A checkpoint file that can be used to skip the calculation of previously calculated results for given interaction types. |
 | **traj_results.npz** | A file containing NumPy arrays with the results from the `traj` run. Further details are provided below (See **About traj_results.npz**). |
@@ -827,16 +831,15 @@ All of the necessary files for the following two tutorials can be found in the t
 2. Go to the [CHARMM-GUI PDB Reader & Manipulator](https://www.charmm-gui.org/?doc=input/pdbreader). We want to convert the PDB to include charge information and to have atom and residue names matching the CHARMM36 forcefield so that we don't have to play around with the input parameters too much. Here, if you have the PDB, you can upload it with "PDB format: PDB". If you don't have the PDB, type "6MST" into the "Download PDB File:" box with "Download Source: RCSB". Leave the "Check/Correct PDB Format" box unchecked and then click "Next Step: Select Model/Chain".
 3. Leave everything on this page as is. Click "Next Step: Manipulate PDB".
 4. Under "Terminal Group Patching" change the "Last" patch for each segment to "CNEU", then click "Next Step: Generate PDB".
-   > *NOTE: If you're trying to do this for some other fibril, you should consider your terminal patches carefully. If there are not any missing residues, you should probably leave them as is. If there are missing residues and you leave them charged it might impact the salt bridge results.*
+   *NOTE: If you're trying to do this for some other fibril, you should consider your terminal patches carefully. If there are not any missing residues, you should probably leave them as is. If there are missing residues and you leave them charged it might impact the salt bridge results.*
 5. Download and unzip the results:
    ```
    mkdir charmm-gui && tar -zxvf charmm-gui.tgz -C charmm-gui --strip-components 1
    ```
-   > *NOTE: The folder that is unpacked from charmm-gui.tgz typically has the JOB ID in the name (charmm-gui-[JOB ID]/). For the sake of this tutorial, the above command will automatically rename the folder "charmm-gui". If you want to keep the JOB ID in the folder name you can simply use `tar -zxvf charmm-gui.tgz`.*
+   *NOTE: The folder that is unpacked from charmm-gui.tgz typically has the JOB ID in the name (charmm-gui-[JOB ID]/). For the sake of this tutorial, the above command will automatically rename the folder "charmm-gui". If you want to keep the JOB ID in the folder name you can simply use `tar -zxvf charmm-gui.tgz`.*
 6. Use correct_pdb.py in the helper_programs subdirectory to reorder the topology:
-   > *NOTE: This program is somewhat crude, but should work for most systems. If not, you can use it as a guide for using MDAnalysis to reorder a topology file. For additional help, check out [this page](https://userguide.mdanalysis.org/stable/examples/constructing_universe.html) of the MDAnalysis user guide.*
-   >
-   > *NOTE: This may not be necessary for every fibril. Open the pdb outputted by CHARMM-GUI in VMD or some other molecular visualization program and make sure that the segments in the PDB appear in the correct order (See **[Usage: calc: Additional Help:](#additional-help) Topology File Setup** for more information).*
+   *NOTE: This program is somewhat crude, but should work for most systems. If not, you can use it as a guide for using MDAnalysis to reorder a topology file. For additional help, check out [this page](https://userguide.mdanalysis.org/stable/examples/constructing_universe.html) of the MDAnalysis user guide.*
+   *NOTE: This may not be necessary for every fibril. Open the pdb outputted by CHARMM-GUI in VMD or some other molecular visualization program and make sure that the segments in the PDB appear in the correct order (See **[Usage: calc: Additional Help:](#additional-help) Topology File Setup** for more information).*
 
    - Feed step1_pdbreader.pdb and step1_pdbreader.psf to correct_pdb.py. These files can be found among the output of CHARMM-GUI.
       ```
@@ -884,7 +887,7 @@ All of the necessary files for the following two tutorials can be found in the t
 
 **Step 1: Reorder your topology and then run your simulation**
 
-> *NOTE: This is not a tutorial on running an MD simulation, because such tutorials have been written by many others (personally, I recommend [Justin Lemkul's GROMACS tutorials](http://www.mdtutorials.com/gmx/index.html) as a starting point). I recommend, however, that you reorder the segments in your topology **before** running your simulations, as it is much more difficult to do after you have the trajectory. The helper program, correct_pdb.py (found in the helper_programs subdirectory), can help you do this, but it will not work for a trajectory.*
+*NOTE: This is not a tutorial on running an MD simulation, because such tutorials have been written by many others (personally, I recommend [Justin Lemkul's GROMACS tutorials](http://www.mdtutorials.com/gmx/index.html) as a starting point). I recommend, however, that you reorder the segments in your topology **before** running your simulations, as it is much more difficult to do after you have the trajectory. The helper program, correct_pdb.py (found in the helper_programs subdirectory), can help you do this, but it will not work for a trajectory.*
 
 A sample trajectory with its topology file is provided in the tutorials/tutorial2 subdirectory. You will use top.tpr as the topology file (it contains all of the necessary information) and traj.xtc as your trajectory file for FibMap. I've also included top.gro in case you want to view the trajectory in [VMD](https://www.ks.uiuc.edu/Research/vmd/). This is a simulation of a 12 layer hSAA fibril derived from PDB 6MST. Note that this trajectory only contains 101 frames and as such will likely not produce a publishable result. For your own system, you should use many more frames from more than one trajectory.
 
