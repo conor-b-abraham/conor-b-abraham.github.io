@@ -169,9 +169,9 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 collections:
-  projects:
+  resources:
     output: true
-    permalink: /projects/:path/
+    permalink: /resources/:path/
 #   news:
 #     defaults:
 #       layout: post
