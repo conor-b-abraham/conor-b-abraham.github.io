@@ -826,12 +826,12 @@ file.close() # Need to close the file
 
 ## Tutorials
 
-All of the necessary files for the following two tutorials can be found in the tutorials subdirectory of this repo.
+Before starting download all of the necessary files for the following two tutorials <a href="{{ 'tutorials.zip' | prepend: 'assets/zip/' | relative_url}}" download >here</a>.
 
 ### Tutorial 1: Creating a FibMap from a PDB
 
 **Step 1: Obtain the PDB and reformat it**
-1. Obtain the PDB ([PDB 6MST](https://www.rcsb.org/structure/6MST)) from the [RCSB PDB Protein Data Bank](https://www.rcsb.org/), from the tutorials/tutorial1 subdirectory, or go directly to [CHARMM-GUI](https://www.charmm-gui.org/).
+1. Obtain the PDB ([PDB 6MST](https://www.rcsb.org/structure/6MST)) from the [RCSB PDB Protein Data Bank](https://www.rcsb.org/), from the downloaded zip, or go directly to [CHARMM-GUI](https://www.charmm-gui.org/).
 2. Go to the [CHARMM-GUI PDB Reader & Manipulator](https://www.charmm-gui.org/?doc=input/pdbreader). We want to convert the PDB to include charge information and to have atom and residue names matching the CHARMM36 forcefield so that we don't have to play around with the input parameters too much. Here, if you have the PDB, you can upload it with "PDB format: PDB". If you don't have the PDB, type "6MST" into the "Download PDB File:" box with "Download Source: RCSB". Leave the "Check/Correct PDB Format" box unchecked and then click "Next Step: Select Model/Chain".
 3. Leave everything on this page as is. Click "Next Step: Manipulate PDB".
 4. Under "Terminal Group Patching" change the "Last" patch for each segment to "CNEU", then click "Next Step: Generate PDB".
