@@ -169,24 +169,24 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 collections:
-  resources:
-    output: false
-    permalink: /resources/:path/
+  projects:
+    output: true
+    permalink: /projects/:path/
 #   news:
 #     defaults:
 #       layout: post
 #     output: false
 #     permalink: /news/:path/
 
-# announcements:
-#   enabled: false
-#   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-#   limit: 5 # leave blank to include all the news in the `_news` folder
+announcements:
+  enabled: false
+  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
+  limit: 5 # leave blank to include all the news in the `_news` folder
 
-# latest_posts:
-#   enabled: false
-#   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-#   limit: 3 # leave blank to include all the blog posts
+latest_posts:
+  enabled: false
+  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
+  limit: 3 # leave blank to include all the blog posts
 
 # -----------------------------------------------------------------------------
 # Jekyll settings

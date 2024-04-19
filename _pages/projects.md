@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Resources
-permalink: /resources/
+permalink: /projects/
 description: A collection of resources
 nav: true
 nav_order: 3
