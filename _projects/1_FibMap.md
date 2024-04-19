@@ -10,5 +10,5 @@ related_publications: true
 
 # Download FibMap from the Repository
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
-    {% include repository/repo.liquid repository=conor-b-abraham/FibMap.git %}
+    {% include repository/repo.liquid repository=conor-b-abraham/FibMap %}
 </div>
