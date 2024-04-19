@@ -174,9 +174,9 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 #       layout: post
 #     output: false
 #     permalink: /news/:path/
-#   projects:
-#     output: false
-#     permalink: /projects/:path/
+  resources:
+    output: false
+    permalink: /resources/:path/
 
 # announcements:
 #   enabled: false

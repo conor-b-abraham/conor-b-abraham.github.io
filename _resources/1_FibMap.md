@@ -4,7 +4,7 @@ title: FibMap
 description: A tool for analyzing and mapping amyloid fibrils
 img: assets/img/FibMap_Logo.png
 importance: 1
-category: work
+category: Tools
 related_publications: true
 ---
 
