@@ -6,6 +6,7 @@ img: assets/img/FibMap_Logo.png
 importance: 1
 category: Tools
 related_publications: false
+github: conor-b-abraham/FibMap
 ---
 
 # Download FibMap from the Repository
