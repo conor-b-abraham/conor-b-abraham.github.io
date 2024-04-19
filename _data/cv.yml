@@ -14,13 +14,13 @@
       location: Boston, MA
       year: 2020-Present
       description:
-        - GPA: 3.87/4.00
+        - GPA 3.87/4.00
     - title: B.S. Biochemistry
       institution: University of St. Thomas
       location: St. Paul, MN
       year: 2016-2020
       description:
-        - GPA: 3.83/4.00
+        - GPA 3.83/4.00
 
 - title: Research Experience
   type: time_table
