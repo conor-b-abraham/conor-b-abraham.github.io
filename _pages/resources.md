@@ -2,7 +2,7 @@
 layout: page
 title: Resources
 permalink: /resources/
-description: A collection of resources
+description: A growing collection of computational chemistry resources
 nav: true
 nav_order: 3
 display_categories: [Tools]

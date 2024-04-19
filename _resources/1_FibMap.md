@@ -2,7 +2,7 @@
 layout: brandedpage
 title: FibMap
 description: A tool for analyzing and mapping amyloid fibrils
-img: assets/img/fibmap/FibMap_Logo.png
+img: assets/img/fibmap/FibMap_Badge.png
 importance: 1
 category: Tools
 related_publications: false
@@ -73,6 +73,7 @@ Determination of charged residues capable of forming salt bridges can be done ma
 | Cation | Lysine | LYS | NZ |
 | Cation | Arginine | ARG | NH1, NH2, NE |
 | Cation | Basic Histidine | HSP | ND1, NE2 |
+
 <div class="caption">
     Table 1: Default residue and atom names used for the manual salt bridge group selector mode.
 </div>
