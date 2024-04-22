@@ -852,14 +852,14 @@ Before starting download all of the necessary files for the following two tutori
       ```
    - A figure will open showing the positions of each segment from three perspectives. Use this figure to determine the proper order of the segments. Write these down, or open the figure manually: it was saved to prepared_segment_locs.png.
     
-<div class="row">
-<div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-    {% include figure.liquid loading="eager" path="assets/img/fibmap/prepared_segment_locs.png" title="Segment Locations Tutorial 1" class="img-fluid rounded z-depth-1" width="75%" %}
-</div>
-</div>
-<div class="caption">
-    Figure 11: Segment location figure from correct_pdb.py for tutorial 1.
-</div>
+    <div class="row">
+    <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/prepared_segment_locs.png" title="Segment Locations Tutorial 1" class="img-fluid rounded z-depth-1" width="75%" %}
+    </div>
+    </div>
+    <div class="caption">
+        Figure 11: Segment location figure from correct_pdb.py for tutorial 1.
+    </div>
   
    - Follow the instructions outputted by the program. You should end up entering the following lines and then hitting [Enter] again:
       ```
@@ -906,18 +906,18 @@ A sample trajectory with its topology file is provided in the tutorials/tutorial
    python FibMap.py map -i map_input.inp
    ```
 
-**The result should look like this:**
+    **The result should look like this:**
 
-<div class="row">
-<div class="col-sm mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/fibmap/Tutorial2_FibMap.png" title="Result Tutorial 2" class="img-fluid rounded z-depth-1" %}
-</div>
-</div>
-<div class="caption">
-    Figure 13: Map output for Tutorial 2.
-</div>
+    <div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/fibmap/Tutorial2_FibMap.png" title="Result Tutorial 2" class="img-fluid rounded z-depth-1" %}
+    </div>
+    </div>
+    <div class="caption">
+        Figure 13: Map output for Tutorial 2.
+    </div>
 
-1. Run the traj step of FibMap using traj_input.inp
+3. Run the traj step of FibMap using traj_input.inp
    ```
    python FibMap.py traj -i traj_input.inp
    ```
