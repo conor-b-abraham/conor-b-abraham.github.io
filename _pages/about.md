@@ -16,7 +16,7 @@ social: true # includes social icons at the bottom of the page
 ---
 
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
         {% include figure.liquid loading="eager" path="assets/img/homephoto.jpg" title="Proteins involved in the amyloid cascade of Alzheimer's Disease in a phase separated membrane" class="img-fluid rounded z-depth-1" zoomable=true %}
     </div>
 </div>
